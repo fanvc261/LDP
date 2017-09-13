@@ -11,7 +11,7 @@ namespace LDP.ROOT.Helper
 {
     public static class ImageExtension
     {
-        public static byte[] CreateImageThumbnail(this byte[] image, int width = 50, int height = 50)
+        public static byte[] CreateImageThumbnail(this byte[] image, int width = 50, int height = 50) 
         {
             if (image.Length == 0) return image;
             using (var stream = new System.IO.MemoryStream(image))
