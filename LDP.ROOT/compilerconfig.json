@@ -1,0 +1,20 @@
+﻿[
+  {
+    "outputFile": "assets/CSS/Plugins/bootstrap/bootstrap.css",
+    "inputFile": "assets/Less/bootstrap/bootstrap.less",
+    "minify": {
+      "enabled": true
+    },
+    "options": {
+      "sourceMap": false
+    }
+  },
+  {
+    "outputFile": "assets/CSS/Plugins/global.css",
+    "inputFile": "assets/Less/global.less"
+  },
+  {
+    "outputFile": "assets/CSS/Admin/admin.css",
+    "inputFile": "assets/Less/admin.less"
+  }
+]

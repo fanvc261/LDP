@@ -13,6 +13,10 @@ namespace LDP.ROOT
 {
     public partial class Default : LDPBase
     {
+        protected void Page_Init(object sender, EventArgs e)
+        {
+            PageId = 1;
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
             //Literal ltr1 = new Literal();

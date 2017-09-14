@@ -69,7 +69,7 @@ namespace LDP.Lib.Common
 
         public static string GetHomeParth()
         {
-            return GetApplicationParth() + "/Pages/Home.aspx";
+            return GetApplicationParth() + "/default.aspx";
         }
 
         public static string GetXsltBaseUrl(string filename)

@@ -27,7 +27,6 @@ namespace LDP.ROOT.Helper
                 result.SiteStatus = user.Option;// &(int)PageStatus.Admin;
             }
             result.CurrentUser = user;
-            //result.CurrentUser = HttpContext.Current.User.Identity.IsAuthenticated ? DMSUserProfile.GetUserInfoFromCache(HttpContext.Current.User.Identity.Name.Split('_')[0], isDealer, userName, loginId) : new DMSUserProfile();
             return result;
         }
     }

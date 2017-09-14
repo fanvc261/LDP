@@ -12,7 +12,7 @@ namespace LDP.ROOT.Base
     public class LDPBase : System.Web.UI.Page
     {
         string LangCode = "EN";
-        int PageId = 0;
+        public int PageId { get; set; }
         public SiteSettings siteSetting { get; set; }
         public LDPBase()
         {

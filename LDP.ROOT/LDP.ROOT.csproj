@@ -24,6 +24,8 @@
     <SccAuxPath>SAK</SccAuxPath>
     <SccProvider>SAK</SccProvider>
     <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -70,14 +72,33 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\CSS\Admin\admin.css" />
+    <Content Include="assets\CSS\Admin\admin.min.css">
+      <DependentUpon>admin.css</DependentUpon>
+    </Content>
+    <Content Include="assets\CSS\Admin\App.css" />
+    <Content Include="assets\CSS\Plugins\bootstrap\bootstrap.css" />
+    <Content Include="assets\CSS\Plugins\bootstrap\bootstrap.min.css">
+      <DependentUpon>bootstrap.css</DependentUpon>
+    </Content>
+    <Content Include="assets\CSS\Plugins\global.css" />
+    <Content Include="assets\CSS\Plugins\global.min.css">
+      <DependentUpon>global.css</DependentUpon>
+    </Content>
+    <Content Include="assets\JS\Plugins\html5shiv.js" />
+    <Content Include="assets\JS\Plugins\less.min.js" />
     <Content Include="DataService.asmx" />
     <Content Include="Global.asax" />
     <Content Include="Default.aspx" />
+    <Content Include="LDPAdmin\Admin.html" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\LDPAdminBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Base\LDPBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -106,6 +127,56 @@
   <ItemGroup>
     <Content Include="log4net.config" />
     <Content Include="Encryption.config" />
+    <Content Include="assets\Less\bootstrap\.csscomb.json" />
+    <Content Include="assets\Less\bootstrap\.csslintrc" />
+    <Content Include="assets\Less\bootstrap\alerts.less" />
+    <Content Include="assets\Less\bootstrap\badges.less" />
+    <Content Include="assets\Less\bootstrap\bootstrap.less" />
+    <Content Include="assets\Less\bootstrap\breadcrumbs.less" />
+    <Content Include="assets\Less\bootstrap\button-groups.less" />
+    <Content Include="assets\Less\bootstrap\buttons.less" />
+    <Content Include="assets\Less\bootstrap\carousel.less" />
+    <Content Include="assets\Less\bootstrap\close.less" />
+    <Content Include="assets\Less\bootstrap\code.less" />
+    <Content Include="assets\Less\bootstrap\component-animations.less" />
+    <Content Include="assets\Less\bootstrap\dropdowns.less" />
+    <Content Include="assets\Less\bootstrap\forms.less" />
+    <Content Include="assets\Less\bootstrap\glyphicons.less" />
+    <Content Include="assets\Less\bootstrap\grid.less" />
+    <Content Include="assets\Less\bootstrap\input-groups.less" />
+    <Content Include="assets\Less\bootstrap\jumbotron.less" />
+    <Content Include="assets\Less\bootstrap\labels.less" />
+    <Content Include="assets\Less\bootstrap\list-group.less" />
+    <Content Include="assets\Less\bootstrap\media.less" />
+    <Content Include="assets\Less\bootstrap\mixins.less" />
+    <Content Include="assets\Less\bootstrap\modals.less" />
+    <Content Include="assets\Less\bootstrap\navbar.less" />
+    <Content Include="assets\Less\bootstrap\navs.less" />
+    <Content Include="assets\Less\bootstrap\normalize.less" />
+    <Content Include="assets\Less\bootstrap\pager.less" />
+    <Content Include="assets\Less\bootstrap\pagination.less" />
+    <Content Include="assets\Less\bootstrap\panels.less" />
+    <Content Include="assets\Less\bootstrap\popovers.less" />
+    <Content Include="assets\Less\bootstrap\print.less" />
+    <Content Include="assets\Less\bootstrap\progress-bars.less" />
+    <Content Include="assets\Less\bootstrap\responsive-utilities.less" />
+    <Content Include="assets\Less\bootstrap\scaffolding.less" />
+    <Content Include="assets\Less\bootstrap\tables.less" />
+    <Content Include="assets\Less\bootstrap\theme.less" />
+    <Content Include="assets\Less\bootstrap\thumbnails.less" />
+    <Content Include="assets\Less\bootstrap\tooltip.less" />
+    <Content Include="assets\Less\bootstrap\type.less" />
+    <Content Include="assets\Less\bootstrap\utilities.less" />
+    <Content Include="assets\Less\bootstrap\variables.less" />
+    <Content Include="assets\Less\bootstrap\wells.less" />
+    <Content Include="assets\Less\admin.less" />
+    <Content Include="assets\Less\global.less" />
+    <Content Include="assets\Less\setup.less" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
+    <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\DMS_Pulished.pubxml" />
     <None Include="Properties\PublishProfiles\Orion.pubxml" />
     <Content Include="Upload.ashx" />
@@ -117,7 +188,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="assets\" />
+    <Folder Include="assets\CSS\Site\" />
+    <Folder Include="assets\JS\Admin\" />
+    <Folder Include="assets\JS\Site\" />
     <Folder Include="controls\" />
     <Folder Include="data\systemfiles\" />
     <Folder Include="data\xsl\" />
@@ -158,6 +231,13 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="..\packages\BuildWebCompiler.1.11.326\build\BuildWebCompiler.targets" Condition="Exists('..\packages\BuildWebCompiler.1.11.326\build\BuildWebCompiler.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\BuildWebCompiler.1.11.326\build\BuildWebCompiler.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\BuildWebCompiler.1.11.326\build\BuildWebCompiler.targets'))" />
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
