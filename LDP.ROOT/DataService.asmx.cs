@@ -22,7 +22,7 @@ namespace LDP.ROOT
         SiteSettings siteSetting = SiteSettings.GetCurrentSiteSettings();
         DataTable provisionalTable = new DataTable();
         [WebMethod]
-        public string HelloWorld()
+        public string HelloWorld() 
         {
             return "Hello World";
         }
