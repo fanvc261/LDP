@@ -102,6 +102,7 @@ display: block; content: ""; height: 30px; margin-top: -31px; border-style: soli
 
 /* #IMAGE EFECT
 ================================================== */
+img {max-width:100%}
 .filter-grayscale { filter: grayscale(1); -webkit-filter: grayscale(1); -moz-filter: grayscale(1); -o-filter: grayscale(1); -ms-filter: grayscale(1); }
 .filter-blur { filter: blur(5px); -webkit-filter: blur(5px); -moz-filter: blur(5px); -o-filter: blur(5px); -ms-filter: blur(5px); }
 .filter-saturate { filter: saturate(500%); -webkit-filter: saturate(500%); -moz-filter: saturate(500%); -o-filter: saturate(500%); -ms-filter: saturate(500%); }
@@ -166,4 +167,20 @@ display: block; content: ""; height: 30px; margin-top: -31px; border-style: soli
 .pdr(@n,@i:0) when (@i=<@n){.pdr@{i}{ @temp:@i+@per-padding-right; padding-right:~"@{temp}px";}
 .pdr(@n,(@i + 5));}
 .pdr(250); 
+
+.handsontable {
+    th .rowHeader {
+        position:relative;
+        top:12px;
+    }
+    td {
+        padding:12px 8px;
+        border-right:none;
+    }
+
+   thead th {
+        padding:8px 8px 0px 8px;
+        border-right:none;
+    }
+}
 

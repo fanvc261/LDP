@@ -1197,6 +1197,9 @@ font-weight:normal;font-style:normal;
 }
 /* #IMAGE EFECT
 ================================================== */
+img {
+  max-width: 100%;
+}
 .filter-grayscale {
   filter: grayscale(1);
   -webkit-filter: grayscale(1);
@@ -2786,4 +2789,16 @@ font-weight:normal;font-style:normal;
 }
 .pdr250 {
   padding-right: 250px;
+}
+.handsontable th .rowHeader {
+  position: relative;
+  top: 12px;
+}
+.handsontable td {
+  padding: 12px 8px;
+  border-right: none;
+}
+.handsontable thead th {
+  padding: 8px 8px 0px 8px;
+  border-right: none;
 }

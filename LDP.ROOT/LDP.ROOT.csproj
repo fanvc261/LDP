@@ -77,6 +77,10 @@
       <DependentUpon>admin.css</DependentUpon>
     </Content>
     <Content Include="assets\CSS\Admin\App.css" />
+    <Content Include="assets\CSS\Admin\img\sidebar-1.jpg" />
+    <Content Include="assets\CSS\Admin\img\sidebar-2.jpg" />
+    <Content Include="assets\CSS\Admin\img\sidebar-3.jpg" />
+    <Content Include="assets\CSS\Admin\img\sidebar-4.jpg" />
     <Content Include="assets\CSS\Plugins\bootstrap\bootstrap.css" />
     <Content Include="assets\CSS\Plugins\bootstrap\bootstrap.min.css">
       <DependentUpon>bootstrap.css</DependentUpon>
@@ -85,9 +89,13 @@
     <Content Include="assets\CSS\Plugins\global.min.css">
       <DependentUpon>global.css</DependentUpon>
     </Content>
+    <Content Include="assets\CSS\Plugins\handsontable.full.min.css" />
+    <Content Include="assets\JS\Plugins\bk_handsontable.full.min.js" />
+    <Content Include="assets\JS\Plugins\handsontable.full.min.js" />
     <Content Include="assets\JS\Plugins\html5shiv.js" />
     <Content Include="assets\JS\Plugins\less.min.js" />
     <Content Include="DataService.asmx" />
+    <Content Include="data\img\avatar.jpg" />
     <Content Include="Global.asax" />
     <Content Include="Default.aspx" />
     <Content Include="LDPAdmin\Admin.html" />
