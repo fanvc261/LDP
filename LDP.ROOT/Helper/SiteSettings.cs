@@ -14,14 +14,15 @@ namespace LDP.ROOT.Helper
         public string LanguageCode { get; set; }
         public User CurrentUser { get; set; }
         public int SiteStatus { get; set; }
-
+        public bool IsAuthenticated { get; set; }
         public static SiteSettings GetCurrentSiteSettings()
         {
             SiteSettings result = new SiteSettings();
             result.LanguageCode = "ENG";
             result.SiteStatus = 0;
+            result.IsAuthenticated = HttpContext.Current.User.Identity.IsAuthenticated;
             User user = new User();
-            if (!string.IsNullOrEmpty(HttpContext.Current.User.Identity.Name))
+            if (HttpContext.Current.User.Identity.IsAuthenticated)
             {
                 user = new User(HttpContext.Current.User.Identity.Name);
                 result.SiteStatus = user.Option;// &(int)PageStatus.Admin;

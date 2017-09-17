@@ -160,7 +160,7 @@ body {
             content: "";
             display: block;
             background: @color-admin-sidebar;
-            opacity: .8;
+            opacity: .9;
         }
     }
 }
@@ -183,13 +183,15 @@ body {
         display: inline-block;
         position: relative;
         width: 100%;
+
         .box-header-icon {
-            float:left;
-            margin:-20px 15px 0px 15px;
+            float: left;
+            margin: -20px 15px 0px 15px;
             background: @color-admin-sidebar-active;
             color: @color-admin-sidebar-base;
             .border-radius(3px);
             .box-shadow(~"0 4px 20px 0px rgba(0, 0, 0, .14),0 7px 10px -5px rgba($color, 0.4)");
+
             .material-icons {
                 height: 33px;
                 line-height: 33px;
@@ -197,11 +199,37 @@ body {
                 width: 33px;
             }
         }
+
         .box-body {
             .box-content-title {
-
             }
         }
+    }
 
+    .wiget-content {
+        .wiget-content-left ul.nav {
+            li {
+                border-bottom: solid 1px #eee;
+
+                a {
+                    padding: 15px 0px;
+
+                    &:hover,
+                    &:focus {
+                        //background: none;
+                        outline: none;
+                        color: @color-admin-link;
+                        margin: 0px -15px;
+                        padding: 15px 15px;
+                    }
+                }
+
+                &:first-child {
+                    a {
+                        
+                    }
+                }
+            }
+        }
     }
 }

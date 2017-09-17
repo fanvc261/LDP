@@ -179,7 +179,7 @@ body {
   content: "";
   display: block;
   background: #191919;
-  opacity: .8;
+  opacity: .9;
 }
 .main-content {
   transition-duration: 0.2s, 0.2s, 0.35s;
@@ -226,4 +226,17 @@ body {
   line-height: 33px;
   text-align: center;
   width: 33px;
+}
+.main-content .wiget-content .wiget-content-left ul.nav li {
+  border-bottom: solid 1px #eee;
+}
+.main-content .wiget-content .wiget-content-left ul.nav li a {
+  padding: 15px 0px;
+}
+.main-content .wiget-content .wiget-content-left ul.nav li a:hover,
+.main-content .wiget-content .wiget-content-left ul.nav li a:focus {
+  outline: none;
+  color: #000000;
+  margin: 0px -15px;
+  padding: 15px 15px;
 }

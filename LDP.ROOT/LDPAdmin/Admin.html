@@ -5,23 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Admin</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 
-    <!--if lt IE 9-->
-    <script src="/assets/JS/Plugins/html5shiv.js"></script>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-    <link rel="stylesheet" type="text/css" href="/assets/CSS/Plugins/bootstrap/bootstrap.css" />   
+    <link rel="stylesheet" type="text/css" href="/assets/CSS/Plugins/bootstrap/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="/assets/CSS/Plugins/handsontable.full.min.css">
     <link rel="stylesheet" type="text/css" href="/assets/CSS/Plugins/global.css" />
     <link rel="stylesheet" type="text/css" href="/assets/CSS/Admin/admin.css" />
     <script src="/assets/JS/Plugins/handsontable.full.min.js"></script>
-    <!--<link rel="stylesheet" type="text/css" href="http://docs.handsontable.com/pro/bower_components/handsontable-pro/dist/handsontable.full.min.css">-->  
+    <!--<link rel="stylesheet" type="text/css" href="http://docs.handsontable.com/pro/bower_components/handsontable-pro/dist/handsontable.full.min.css">-->
     <!--<script src="http://docs.handsontable.com/pro/bower_components/handsontable-pro/dist/handsontable.full.min.js"></script>-->
-    
+
+    <link rel="stylesheet" type="text/css" href="/assets/CSS/Plugins/kendo/kendo.common.min.css" />
+    <link rel="stylesheet" href="/assets/CSS/Plugins/kendo/kendo.default.min.css" />
+    <link rel="stylesheet" href="/assets/CSS/Plugins/kendo/kendo.common-material.min.css" />
+    <link rel="stylesheet" href="/assets/CSS/Plugins/kendo//kendo.default.mobile.min.css" />
+
+
+    <script src="/assets/JS/Plugins/kendo/kendo.all.min.js"></script>
+    <!--if lt IE 9-->
+    <script src="/assets/JS/Plugins/html5shiv.js"></script>
 </head>
 <body>
     <div class="wrapper">
 
-        <div class="sidebar" data-active-color="rose" data-background-color="black" >
+        <div class="sidebar" data-active-color="rose" data-background-color="black">
             <div class="sidebar-wrapper">
                 <div class="user text-center">
                     <div class="photo mrt10">
@@ -271,7 +279,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="box-content mrt30 mrb15">
+                        <div class="box-content mrt30 mrb15 grid-content" style="display:none">
                             <div class="box-header box-header-icon pd15" data-background-color="green">
                                 <i class="material-icons">apps</i>
                             </div>
@@ -596,6 +604,163 @@
                                 </div>
                             </div>
                         </div>
+
+
+                        <div class="box-content mrt30 mrb15 wiget-content">
+                            <div class="box-header box-header-icon pd15" data-background-color="green">
+                                <i class="material-icons">apps</i>
+                            </div>
+                            <div class="box-body pd15">
+                                <h4 class="box-content-title pdb15 mrt0 mrb5">Global Sales by Top Locations</h4>
+                                <div class="row">
+                                    <div class="col-md-3 wiget-content-left">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">Events</div>
+                                            <div class="panel-body">
+
+                                                <ul class="nav">
+                                                    <li><a class="text-15" gid="aaaa" href="#" alt="bcs sss"> Nullam quis risus eget </a></li>
+                                                    <li><a class="text-15" gid="aaaa" href="#" alt="bcs sss"> Nullam quis risus eget </a></li>
+                                                    <li><a class="text-15" gid="aaaa" href="#" alt="bcs sss"> Nullam quis risus eget </a></li>
+                                                    <li><a class="text-15" gid="aaaa" href="#" alt="bcs sss"> Nullam quis risus eget </a></li>
+                                                    <li><a class="text-15" gid="aaaa" href="#" alt="bcs sss"> Nullam quis risus eget </a></li>
+                                                    <li><a class="text-15" gid="aaaa" href="#" alt="bcs sss"> Nullam quis risus eget </a></li>
+                                                    <li><a class="text-15" gid="aaaa" href="#" alt="bcs sss"> Nullam quis risus eget </a></li>
+                                                </ul>
+
+                                                <div class="input-group calendar-events-ctrl">
+                                                    <input class="form-control calendar-event-name" placeholder="Add new event" type="text">
+                                                    <span class="input-group-btn">
+                                                        <button class="btn btn-success add-calendar-event" type="button">Add</button>
+                                                    </span>
+                                                </div><!-- /input-group -->
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-9 wiget-content-right">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">Events</div>
+                                            <div class="panel-body">
+
+                                                <div id="example">
+                                                    <textarea id="editor" rows="10" cols="30" style="height:440px" aria-label="editor">
+                    &lt;p&gt;&lt;img src=&quot;../content/web/editor/kendo-ui-web.png&quot; alt=&quot;Editor for ASP.NET MVC logo&quot; style=&quot;display:block;margin-left:auto;margin-right:auto;&quot; /&gt;&lt;/p&gt;
+                    &lt;p&gt;
+                        Kendo UI Editor allows your users to edit HTML in a familiar, user-friendly way.&lt;br /&gt;
+                        In this version, the Editor provides the core HTML editing engine, which includes basic text formatting, hyperlinks, lists,
+                        and image handling. The widget &lt;strong&gt;outputs identical HTML&lt;/strong&gt; across all major browsers, follows
+                        accessibility standards and provides API for content manipulation.
+                    &lt;/p&gt;
+                    &lt;p&gt;Features include:&lt;/p&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;Text formatting &amp; alignment&lt;/li&gt;
+                        &lt;li&gt;Bulleted and numbered lists&lt;/li&gt;
+                        &lt;li&gt;Hyperlink and image dialogs&lt;/li&gt;
+                        &lt;li&gt;Cross-browser support&lt;/li&gt;
+                        &lt;li&gt;Identical HTML output across browsers&lt;/li&gt;
+                        &lt;li&gt;Gracefully degrades to a &lt;code&gt;textarea&lt;/code&gt; when JavaScript is turned off&lt;/li&gt;
+                    &lt;/ul&gt;
+                    &lt;p&gt;
+                        Read &lt;a href=&quot;http://docs.telerik.com/kendo-ui&quot;&gt;more details&lt;/a&gt; or send us your
+                        &lt;a href=&quot;http://www.telerik.com/forums/&quot;&gt;feedback&lt;/a&gt;!
+                    &lt;/p&gt;
+                </textarea>
+                                                    <script>
+                                                        $(document).ready(function () {
+                                                            // create Editor from textarea HTML element with default set of tools
+                                                            $("#editor").kendoEditor({
+                                                                tools: [
+                                                                    "bold",
+                                                                    "italic",
+                                                                    "underline",
+                                                                    "strikethrough",
+                                                                    "justifyLeft",
+                                                                    "justifyCenter",
+                                                                    "justifyRight",
+                                                                    "justifyFull",
+                                                                    "insertUnorderedList",
+                                                                    "insertOrderedList",
+                                                                    "indent",
+                                                                    "outdent",
+                                                                    "createLink",
+                                                                    "unlink",
+                                                                    "insertImage",
+                                                                    "insertFile",
+                                                                    "subscript",
+                                                                    "superscript",
+                                                                    "tableWizard",
+                                                                    "createTable",
+                                                                    "addRowAbove",
+                                                                    "addRowBelow",
+                                                                    "addColumnLeft",
+                                                                    "addColumnRight",
+                                                                    "deleteRow",
+                                                                    "deleteColumn",
+                                                                    "viewHtml",
+                                                                    "formatting",
+                                                                    "cleanFormatting",
+                                                                    "fontName",
+                                                                    "fontSize",
+                                                                    "foreColor",
+                                                                    "backColor",
+                                                                    "print"
+                                                                ],
+                                                                imageBrowser: {
+                                                                    messages: {
+                                                                        dropFilesHere: "Drop files here"
+                                                                    },
+                                                                    transport: {
+                                                                        read: {
+                                                                            dataType: "json",
+                                                                            data: {path:''},
+                                                                            url: "/ImageService.asmx/Read",
+                                                                            type: "POST"
+                                                                        },
+                                                                        destroy: {
+                                                                            url: "/ImageService.asmx/Destroy",
+                                                                            type: "POST"
+                                                                        },
+                                                                        create: {
+                                                                            url: "/ImageService.asmx/Create",
+                                                                            type: "POST"
+                                                                        },
+                                                                        thumbnailUrl: "/ImageService.asmx/Thumbnail",
+                                                                        uploadUrl: "/ImageService.asmx/Upload",
+                                                                        imageUrl: "/ImageService.asmx/Image?path={0}"
+                                                                    }
+                                                                },
+                                                                fileBrowser: {
+                                                                    messages: {
+                                                                        dropFilesHere: "Drop files here"
+                                                                    },
+                                                                    transport: {
+                                                                        read: "/kendo-ui/service/FileBrowser/Read",
+                                                                        destroy: {
+                                                                            url: "/kendo-ui/service/FileBrowser/Destroy",
+                                                                            type: "POST"
+                                                                        },
+                                                                        create: {
+                                                                            url: "/kendo-ui/service/FileBrowser/Create",
+                                                                            type: "POST"
+                                                                        },
+                                                                        uploadUrl: "/kendo-ui/service/FileBrowser/Upload",
+                                                                        fileUrl: "/kendo-ui/service/FileBrowser/File?fileName={0}"
+                                                                    }
+                                                                }
+                                                            });
+                                                        });
+                                                    </script>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
