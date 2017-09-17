@@ -120,46 +120,54 @@ namespace LDP.ROOT
             //throw new HttpException(403, "Forbidden");
         }
 
-        //public virtual ActionResult Thumbnail(string path)
-        //{
-        //    path = NormalizePath(path);
 
-        //    if (AuthorizeThumbnail(path))
-        //    {
-        //        var physicalPath = Server.MapPath(path);
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void Thumbnail(string path)
+        {
+            path = NormalizePath(path);
 
-        //        if (System.IO.File.Exists(physicalPath))
-        //        {
-        //            HttpContext.Current.Response.AddFileDependency(physicalPath);
+            if (AuthorizeThumbnail(path))
+            {
+                var physicalPath = Server.MapPath(path);
 
-        //            return CreateThumbnail(physicalPath);
-        //        }
-        //        else
-        //        {
-        //            throw new HttpException(404, "File Not Found");
-        //        }
-        //    }
-        //    else
-        //    {
-        //        throw new HttpException(403, "Forbidden");
-        //    }
-        //}
+                if (System.IO.File.Exists(physicalPath))
+                {
+                    HttpContext.Current.Response.AddFileDependency(physicalPath);
 
-        //private FileContentResult CreateThumbnail(string physicalPath)
-        //{
-        //    using (var fileStream = System.IO.File.OpenRead(physicalPath))
-        //    {
-        //        var desiredSize = new ImageSize
-        //        {
-        //            Width = ThumbnailWidth,
-        //            Height = ThumbnailHeight
-        //        };
+                    CreateThumbnail(physicalPath);
+                }
+                else
+                {
+                    throw new HttpException(404, "File Not Found");
+                }
+            }
+            else
+            {
+                throw new HttpException(403, "Forbidden");
+            }
+        }
 
-        //        const string contentType = "image/png";
+        private void CreateThumbnail(string physicalPath)
+        {
+            using (var fileStream = System.IO.File.OpenRead(physicalPath))
+            {
+                var desiredSize = new ImageSize
+                {
+                    Width = ThumbnailWidth,
+                    Height = ThumbnailHeight
+                };
 
-        //        return new FileStreamResult(thumbnailCreator.Create(fileStream, desiredSize, contentType), contentType);
-        //    }
-        //}
+                const string contentType = "image/png";
+
+                HttpContext.Current.Response.ContentType = contentType;
+                new MemoryStream(thumbnailCreator.Create(fileStream, desiredSize, contentType)).WriteTo(HttpContext.Current.Response.OutputStream);
+
+
+                HttpContext.Current.Response.Flush();
+                HttpContext.Current.Response.End();
+            }
+        }
 
         public virtual bool AuthorizeThumbnail(string path)
         {
