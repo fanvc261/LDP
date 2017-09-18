@@ -1,0 +1,296 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminSite.master.cs" Inherits="LDP.ROOT.LDPAdmin.AdminSite" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Admin</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" type="text/css" href="/assets/CSS/Plugins/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/CSS/Plugins/handsontable.full.min.css">
+    <link rel="stylesheet" type="text/css" href="/assets/CSS/Plugins/global.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/CSS/Admin/admin.css" />
+    <script src="/assets/JS/Plugins/handsontable.full.min.js"></script>
+    <!--<link rel="stylesheet" type="text/css" href="http://docs.handsontable.com/pro/bower_components/handsontable-pro/dist/handsontable.full.min.css">-->
+    <!--<script src="http://docs.handsontable.com/pro/bower_components/handsontable-pro/dist/handsontable.full.min.js"></script>-->
+
+    <link rel="stylesheet" type="text/css" href="/assets/CSS/Plugins/kendo/kendo.common.min.css" />
+    <link rel="stylesheet" href="/assets/CSS/Plugins/kendo/kendo.default.min.css" />
+    <link rel="stylesheet" href="/assets/CSS/Plugins/kendo/kendo.common-material.min.css" />
+    <link rel="stylesheet" href="/assets/CSS/Plugins/kendo//kendo.default.mobile.min.css" />
+
+    <script src="/assets/JS/Plugins/kendo/kendo.all.min.js"></script>
+    <!--if lt IE 9-->
+    <script src="/assets/JS/Plugins/default.js"></script>
+    
+    <asp:ContentPlaceHolder ID="cphHeader" runat="server">
+    </asp:ContentPlaceHolder>
+    <script src="/assets/JS/Plugins/html5shiv.js"></script>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="wrapper">
+            <div class="sidebar" data-active-color="rose" data-background-color="black">
+                <div class="sidebar-wrapper">
+                    <div class="user text-center">
+                        <div class="photo mrt10">
+                            <img src="/data/img/avatar.jpg" />
+                        </div>
+                        <div class="info mrt5">
+                            <a href="#collapseExample" class="collapsed">
+                                <span>Tania Andrew
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                    <ul class="nav">
+                        <li class="active">
+                            <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./dashboard.html">
+                                <i class="material-icons">dashboard</i>
+                                <p>Dashboard</p>
+                            </a>
+                        </li>
+                        <li class="active">
+                            <a class="mrt10 mrl15 mrr15 pdl10 pdr10" data-toggle="collapse" aria-expanded="true" href="#pagesExamples">
+                                <i class="material-icons">image</i>
+                                <p>
+                                    Pages
+                                <b class="caret mrt15"></b>
+                                </p>
+                            </a>
+                            <div class="collapse in" id="pagesExamples">
+                                <ul class="nav">
+                                    <li class="active">
+                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./pages/pricing.html">
+                                            <span class="sidebar-mini left mrr15">P</span>
+                                            <span class="sidebar-normal">Pricing</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./pages/timeline.html">
+                                            <span class="sidebar-mini left mrr15">T</span>
+                                            <span class="sidebar-normal">Timeline</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./pages/login.html">
+                                            <span class="sidebar-mini left mrr15">LP</span>
+                                            <span class="sidebar-normal">Login Page</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./pages/register.html">
+                                            <span class="sidebar-mini left mrr15">RP</span>
+                                            <span class="sidebar-normal">Register Page</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./pages/lock.html">
+                                            <span class="sidebar-mini left mrr15">LSP</span>
+                                            <span class="sidebar-normal">Lock Screen Page</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./pages/user.html">
+                                            <span class="sidebar-mini left mrr15">UP</span>
+                                            <span class="sidebar-normal">User Profile</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="mrt10 mrl15 mrr15 pdl10 pdr10" data-toggle="collapse" href="#componentsExamples">
+                                <i class="material-icons">apps</i>
+                                <p>
+                                    Components
+                                <b class="caret mrt15"></b>
+                                </p>
+                            </a>
+                            <div class="collapse" id="componentsExamples">
+                                <ul class="nav">
+                                    <li>
+                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./components/buttons.html">
+                                            <span class="sidebar-mini left mrr15">B</span>
+                                            <span class="sidebar-normal">Buttons</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./components/grid.html">
+                                            <span class="sidebar-mini left mrr15">GS</span>
+                                            <span class="sidebar-normal">Grid System</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./components/panels.html">
+                                            <span class="sidebar-mini left mrr15">P</span>
+                                            <span class="sidebar-normal">Panels</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./components/sweet-alert.html">
+                                            <span class="sidebar-mini left mrr15">SA</span>
+                                            <span class="sidebar-normal">Sweet Alert</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./components/notifications.html">
+                                            <span class="sidebar-mini left mrr15">N</span>
+                                            <span class="sidebar-normal">Notifications</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./components/icons.html">
+                                            <span class="sidebar-mini left mrr15">I</span>
+                                            <span class="sidebar-normal">Icons</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./components/typography.html">
+                                            <span class="sidebar-mini left mrr15">T</span>
+                                            <span class="sidebar-normal">Typography</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="mrt10 mrl15 mrr15 pdl10 pdr10" data-toggle="collapse" href="#formsExamples">
+                                <i class="material-icons">content_paste</i>
+                                <p>
+                                    Forms
+                                <b class="caret mrt15"></b>
+                                </p>
+                            </a>
+                            <div class="collapse" id="formsExamples">
+                                <ul class="nav">
+                                    <li>
+                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./forms/regular.html">
+                                            <span class="sidebar-mini left mrr15">RF</span>
+                                            <span class="sidebar-normal">Regular Forms</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./forms/extended.html">
+                                            <span class="sidebar-mini left mrr15">EF</span>
+                                            <span class="sidebar-normal">Extended Forms</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./forms/validation.html">
+                                            <span class="sidebar-mini left mrr15">VF</span>
+                                            <span class="sidebar-normal">Validation Forms</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./forms/wizard.html">
+                                            <span class="sidebar-mini left mrr15">W</span>
+                                            <span class="sidebar-normal">Wizard</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="mrt10 mrl15 mrr15 pdl10 pdr10" data-toggle="collapse" href="#tablesExamples">
+                                <i class="material-icons">grid_on</i>
+                                <p>
+                                    Tables
+                                <b class="caret mrt15"></b>
+                                </p>
+                            </a>
+                            <div class="collapse" id="tablesExamples">
+                                <ul class="nav">
+                                    <li>
+                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./tables/regular.html">
+                                            <span class="sidebar-mini left mrr15">RT</span>
+                                            <span class="sidebar-normal">Regular Tables</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./tables/extended.html">
+                                            <span class="sidebar-mini left mrr15">ET</span>
+                                            <span class="sidebar-normal">Extended Tables</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./tables/datatables.net.html">
+                                            <span class="sidebar-mini left mrr15">DT</span>
+                                            <span class="sidebar-normal">DataTables.net</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="mrt10 mrl15 mrr15 pdl10 pdr10" data-toggle="collapse" href="#mapsExamples">
+                                <i class="material-icons">place</i>
+                                <p>
+                                    Maps
+                                <b class="caret mrt15"></b>
+                                </p>
+                            </a>
+                            <div class="collapse" id="mapsExamples">
+                                <ul class="nav">
+                                    <li>
+                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./maps/google.html">
+                                            <span class="sidebar-mini left mrr15">GM</span>
+                                            <span class="sidebar-normal">Google Maps</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./maps/fullscreen.html">
+                                            <span class="sidebar-mini left mrr15">FSM</span>
+                                            <span class="sidebar-normal">Full Screen Map</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./maps/vector.html">
+                                            <span class="sidebar-mini left mrr15">VM</span>
+                                            <span class="sidebar-normal">Vector Map</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./widgets.html">
+                                <i class="material-icons">widgets</i>
+                                <p>Widgets</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./charts.html">
+                                <i class="material-icons">timeline</i>
+                                <p>Charts</p>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./calendar.html">
+                                <i class="material-icons">date_range</i>
+                                <p>Calendar</p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sidebar-background"></div>
+            </div>
+            <div class="main-content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <asp:ContentPlaceHolder ID="cphMain" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

@@ -469,9 +469,13 @@
     <Content Include="assets\CSS\Plugins\kendo\Uniform\sprite_2x.png" />
     <Content Include="assets\CSS\Plugins\kendo\Uniform\sprite_kpi.png" />
     <Content Include="assets\CSS\Plugins\kendo\Uniform\sprite_kpi_2x.png" />
+    <Content Include="assets\JS\Admin\Wiget.js" />
     <Content Include="assets\JS\Plugins\bk_handsontable.full.min.js" />
+    <Content Include="assets\JS\Plugins\default.js" />
     <Content Include="assets\JS\Plugins\handsontable.full.min.js" />
     <Content Include="assets\JS\Plugins\html5shiv.js" />
+    <Content Include="assets\JS\Plugins\jquery.bootstrap.min.js" />
+    <Content Include="assets\JS\Plugins\jquery.select-bootstrap.js" />
     <Content Include="assets\JS\Plugins\kendo\angular.min.js" />
     <Content Include="assets\JS\Plugins\kendo\cultures\kendo.culture.aa-DJ.min.js" />
     <Content Include="assets\JS\Plugins\kendo\cultures\kendo.culture.aa-ER.min.js" />
@@ -1497,6 +1501,7 @@
     <Content Include="assets\JS\Plugins\kendo\pako_deflate.min.js" />
     <Content Include="assets\JS\Plugins\less.min.js" />
     <Content Include="AdminService.asmx" />
+    <Content Include="assets\JS\Plugins\material.min.js" />
     <Content Include="data\editor\avatar.jpg" />
     <Content Include="FileService.asmx" />
     <Content Include="ImageService.asmx" />
@@ -1505,11 +1510,17 @@
     <Content Include="Global.asax" />
     <Content Include="Default.aspx" />
     <Content Include="LDPAdmin\Admin.html" />
+    <Content Include="LDPAdmin\Wiget.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_GlobalResources\Admin.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Admin.resx</DependentUpon>
+    </Compile>
     <Compile Include="Base\LDPAdminBase.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -1520,10 +1531,25 @@
       <DependentUpon>AdminService.asmx</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="LDPAdmin\AdminSite.Master.cs">
+      <DependentUpon>AdminSite.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LDPAdmin\AdminSite.Master.designer.cs">
+      <DependentUpon>AdminSite.Master</DependentUpon>
+    </Compile>
+    <Compile Include="LDPAdmin\Wiget.aspx.cs">
+      <DependentUpon>Wiget.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LDPAdmin\Wiget.aspx.designer.cs">
+      <DependentUpon>Wiget.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Models\FileBrowser\ContentInitializer.cs" />
     <Compile Include="Models\FileBrowser\DirectoryBrowser.cs" />
     <Compile Include="Models\FileBrowser\EntryType.cs" />
     <Compile Include="Models\FileBrowser\FileBrowserEntry.cs" />
+    <Compile Include="Models\FileBrowser\FileBrowserHelper.cs" />
     <Compile Include="Models\FileBrowser\FitImageResizer.cs" />
     <Compile Include="Models\FileBrowser\ImageSize.cs" />
     <Compile Include="Models\FileBrowser\ThumbnailCreator.cs" />
@@ -2726,6 +2752,7 @@
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
     <Content Include="packages.config" />
+    <Content Include="LDPAdmin\AdminSite.Master" />
     <None Include="Properties\PublishProfiles\DMS_Pulished.pubxml" />
     <None Include="Properties\PublishProfiles\Orion.pubxml" />
     <Content Include="Upload.ashx" />
@@ -2738,8 +2765,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="App_LocalResources\" />
     <Folder Include="assets\CSS\Site\" />
-    <Folder Include="assets\JS\Admin\" />
     <Folder Include="assets\JS\Site\" />
     <Folder Include="controls\" />
     <Folder Include="data\systemfiles\" />
@@ -2756,6 +2783,15 @@
       <Project>{8afbdd6e-9bc0-40aa-9c7d-6cf5df25ad01}</Project>
       <Name>LDP.Lib</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LDPAdmin\App_LocalResources\Wiget.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Admin.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Admin.Designer.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

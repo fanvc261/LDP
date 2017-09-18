@@ -9,6 +9,75 @@ body {
   font-weight: 300;
   line-height: 1.5em;
 }
+.label-floating label.control-label,
+.label-placeholder label.control-label {
+  top: -7px;
+  font-size: 14px;
+  line-height: 1.42857;
+}
+.label-static label.control-label,
+.label-floating.is-focused label.control-label,
+.label-floating:focus label.control-label,
+.label-floating:not(.is-empty) label.control-label {
+  top: -28px;
+  left: 0;
+  font-size: 11px;
+  line-height: 1.07143;
+}
+.form-group {
+  position: relative;
+}
+.form-group .form-control {
+  border: 0;
+  background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#D2D2D2, #D2D2D2);
+  background-size: 0 2px, 100% 1px;
+  background-repeat: no-repeat;
+  background-position: center bottom, center calc(100% - 1px);
+  background-color: rgba(0, 0, 0, 0);
+  transition: background 0s ease-out;
+  float: none;
+  box-shadow: none;
+  border-radius: 0;
+  font-weight: 400;
+  padding: 5px 0px;
+}
+.form-group.label-static label.control-label,
+.form-group.label-placeholder label.control-label,
+.form-group.label-floating label.control-label {
+  position: absolute;
+  pointer-events: none;
+  transition: 0.3s ease all;
+  margin-top: 15px;
+  font-weight: 400;
+}
+.form-group.label-floating label.control-label {
+  will-change: left, top, contents;
+}
+.form-group.label-placeholder:not(.is-empty) label.control-label {
+  display: none;
+}
+.form-group.is-focused .form-control,
+.form-group:focus .form-control {
+  outline: none;
+  background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#D2D2D2, #D2D2D2);
+  background-size: 100% 2px, 100% 1px;
+  box-shadow: none;
+  transition-duration: 0.3s;
+}
+.form-group.is-focused .form-control .material-input:after,
+.form-group:focus .form-control .material-input:after {
+  background-color: #9c27b0;
+}
+.form-group.is-focused.label-placeholder label,
+.form-group:focus.label-placeholder label,
+.form-group.is-focused.label-placeholder label.control-label,
+.form-group:focus.label-placeholder label.control-label {
+  color: #AAAAAA;
+}
+.form-group.is-focused .help-block,
+.form-group:focus .help-block {
+  display: block;
+}
 .sidebar {
   position: fixed;
   top: 0;
@@ -191,6 +260,13 @@ body {
   touch-action: auto;
   overflow: hidden;
 }
+.main-content .panel-heading-btn-right {
+  position: relative;
+  top: -5px;
+  right: -10px;
+  background: #e91e63;
+  color: #ffffff;
+}
 .main-content .box-content {
   background: #fff none repeat scroll 0 0;
   -webkit-border-radius: 6px;
@@ -217,9 +293,9 @@ body {
   -moz-background-clip: padding;
   -webkit-background-clip: padding-box;
   background-clip: padding-box;
-  -webkit-box-shadow: 0 4px 20px 0px rgba(0, 0, 0, .14),0 7px 10px -5px rgba($color, 0.4);
-  -moz-box-shadow: 0 4px 20px 0px rgba(0, 0, 0, .14),0 7px 10px -5px rgba($color, 0.4);
-  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, .14),0 7px 10px -5px rgba($color, 0.4);
+  -webkit-box-shadow: 0 4px 20px 0px rgba(0, 0, 0, .14),0 7px 10px -5px rgba(#e91e63, 0.4);
+  -moz-box-shadow: 0 4px 20px 0px rgba(0, 0, 0, .14),0 7px 10px -5px rgba(#e91e63, 0.4);
+  box-shadow: 0 4px 20px 0px rgba(0, 0, 0, .14),0 7px 10px -5px rgba(#e91e63, 0.4);
 }
 .main-content .box-content .box-header-icon .material-icons {
   height: 33px;

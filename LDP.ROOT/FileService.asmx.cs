@@ -5,6 +5,11 @@ using System.Web.Services;
 using System.Data;
 using System.Linq;
 using LDP.ROOT.Helper;
+using LDP.ROOT.Models.FileBrowser;
+using LDP.ROOT.Models;
+using System.Web.Script.Services;
+using System.IO;
+using System.Web.Script.Serialization;
 
 namespace LDP.ROOT
 {
@@ -19,12 +24,159 @@ namespace LDP.ROOT
     // [System.Web.Script.Services.ScriptService]
     public partial class FileService : System.Web.Services.WebService
     {
-        SiteSettings siteSetting = SiteSettings.GetCurrentSiteSettings();
-        DataTable provisionalTable = new DataTable();
-        [WebMethod]
-        public string HelloWorld() 
+        private FileBrowserHelper fHelper;
+        private readonly DirectoryBrowser directoryBrowser;
+
+        public class File_Result
         {
-            return "Hello World";
+            public string name { get; set; }
+            public string type { get; set; }
+            public long size { get; set; }
+
         }
+
+        public FileService()
+        {
+            directoryBrowser = new DirectoryBrowser();
+            fHelper = new FileBrowserHelper(false);
+        }
+
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void Read(string path)
+        {
+            path = fHelper.NormalizePath(path);
+
+            if (fHelper.AuthorizeRead(path))
+            {
+                try
+                {
+                    directoryBrowser.Server = HttpContext.Current.Server;
+
+                    var result = directoryBrowser
+                        .GetContent(path, fHelper.DefaultFilter)
+                        .Select(f => new File_Result
+                        {
+                            name = f.Name,
+                            type = f.Type == EntryType.File ? "f" : "d",
+                            size = f.Size
+                        });
+
+                    HttpContext.Current.Response.Write(new JavaScriptSerializer().Serialize(result.ToList()));
+                }
+                catch (DirectoryNotFoundException)
+                {
+                    throw new HttpException(404, "File Not Found");
+                }
+            }
+
+            //throw new HttpException(403, "Forbidden");
+        }
+
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void File(string fileName)
+        {
+            var path = fHelper.NormalizePath(fileName);
+
+            if (fHelper.AuthorizeFile(path))
+            {
+                var physicalPath = Server.MapPath(path);
+
+                if (System.IO.File.Exists(physicalPath))
+                {
+                    const string contentType = "application/octet-stream";
+                    HttpContext.Current.Response.ContentType = contentType;
+                    new MemoryStream(System.IO.File.ReadAllBytes(physicalPath)).WriteTo(HttpContext.Current.Response.OutputStream);
+                    HttpContext.Current.Response.Flush();
+                    HttpContext.Current.Response.End();
+                }
+            }
+
+            //throw new HttpException(403, "Forbidden");
+        }
+        
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void Create(string path, string name, string size, string type)
+        {
+            FileBrowserEntry entry = new FileBrowserEntry();
+            path = fHelper.NormalizePath(path);
+
+            if (!string.IsNullOrEmpty(name) && fHelper.AuthorizeCreateDirectory(path, name))
+            {
+                var physicalPath = Path.Combine(Server.MapPath(path), name);
+
+                if (!Directory.Exists(physicalPath))
+                {
+                    Directory.CreateDirectory(physicalPath);
+                }
+
+                HttpContext.Current.Response.Write(new JavaScriptSerializer().Serialize(new File_Result
+                {
+                    name = name,
+                    type = "d",
+                    size = string.IsNullOrEmpty(size) ? 0 : Convert.ToInt64(size)
+                }));
+            }
+
+            //throw new HttpException(403, "Forbidden");
+        }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void Destroy(string path, string name, string type)
+        {
+            path = fHelper.NormalizePath(path);
+
+            if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(type))
+            {
+                path = fHelper.CombinePaths(path, name);
+                if (type.ToLowerInvariant() == "f")
+                {
+                    fHelper.DeleteFile(path);
+                }
+                else
+                {
+                    fHelper.DeleteDirectory(path);
+                }
+
+                HttpContext.Current.Response.Write(new JavaScriptSerializer().Serialize(0));
+            }
+            //throw new HttpException(404, "File Not Found");
+        }
+
+
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void Upload(string path, HttpPostedFileBase file)
+        {
+            path = fHelper.NormalizePath(path);
+            var fileName = Path.GetFileName(file.FileName);
+
+            if (fHelper.AuthorizeUpload(path, file))
+            {
+                file.SaveAs(Path.Combine(Server.MapPath(path), fileName));
+
+                HttpContext.Current.Response.Write(new JavaScriptSerializer().Serialize(new File_Result
+                {
+                    name = fileName,
+                    type = "f",
+                    size = file.ContentLength
+                }));
+            }
+
+            //throw new HttpException(403, "Forbidden");
+        }
+
+
+
+
+
+
     }
 }

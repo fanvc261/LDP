@@ -39,18 +39,19 @@ namespace LDP.ROOT.Models
 
         public string CreateUserFolder(System.Web.HttpServerUtility server)
         {
-            var virtualPath = Path.Combine(rootFolder, Path.Combine("UserFiles", UserID), prettyName);
+            //var virtualPath = Path.Combine(rootFolder, Path.Combine("UserFiles", UserID), prettyName);
 
-            var path = server.MapPath(virtualPath);
-            if (!Directory.Exists(path))
-            {
-                Directory.CreateDirectory(path);
-                foreach (var sourceFolder in foldersToCopy)
-                {
-                    CopyFolder(server.MapPath(sourceFolder), path);
-                }
-            }
-            return virtualPath;
+            //var path = server.MapPath(virtualPath);
+            //if (!Directory.Exists(path))
+            //{
+            //    Directory.CreateDirectory(path);
+            //    foreach (var sourceFolder in foldersToCopy)
+            //    {
+            //        CopyFolder(server.MapPath(sourceFolder), path);
+            //    }
+            //}
+            //return virtualPath;
+            return Path.Combine(rootFolder, "img");
         }
 
         private void CopyFolder(string source, string destination)

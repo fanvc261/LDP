@@ -9,6 +9,7 @@ using LDP.ROOT.Models;
 using System.IO;
 using System.Web.Script.Serialization;
 using System.Web.Script.Services;
+using LDP.ROOT.Models.FileBrowser;
 
 namespace LDP.ROOT
 {
@@ -23,17 +24,12 @@ namespace LDP.ROOT
     // [System.Web.Script.Services.ScriptService]
     public partial class ImageService : System.Web.Services.WebService
     {
-        private const string contentFolderRoot = "~/data/";
-        private const string prettyName = "Images/";
-        private static readonly string[] foldersToCopy = new[] { "~/data/editor/" };
-        private const string DefaultFilter = "*.png,*.gif,*.jpg,*.jpeg";
-
+       
+        //private const string DefaultFilter = "*.png,*.gif,*.jpg,*.jpeg";
+        private FileBrowserHelper fHelper;
         private const int ThumbnailHeight = 80;
         private const int ThumbnailWidth = 80;
-
         private readonly DirectoryBrowser directoryBrowser;
-        private readonly ContentInitializer contentInitializer;
-        private readonly ThumbnailCreator thumbnailCreator;
 
         public class Image_Result
         {
@@ -46,62 +42,23 @@ namespace LDP.ROOT
         public ImageService()
         {
             directoryBrowser = new DirectoryBrowser();
-            contentInitializer = new ContentInitializer(contentFolderRoot, foldersToCopy, prettyName);
-            thumbnailCreator = new ThumbnailCreator();
-        }
-
-        private string ToAbsolute(string virtualPath)
-        {
-            return VirtualPathUtility.ToAbsolute(virtualPath);
-        }
-
-        private string CombinePaths(string basePath, string relativePath)
-        {
-            return VirtualPathUtility.Combine(VirtualPathUtility.AppendTrailingSlash(basePath), relativePath);
-        }
-
-        public virtual bool AuthorizeRead(string path)
-        {
-            return CanAccess(path);
-        }
-
-        protected virtual bool CanAccess(string path)
-        {
-            return path.StartsWith(ToAbsolute(ContentPath), StringComparison.OrdinalIgnoreCase);
-        }
-
-        private string NormalizePath(string path)
-        {
-            if (string.IsNullOrEmpty(path))
-            {
-                return ToAbsolute(ContentPath);
-            }
-
-            return CombinePaths(ToAbsolute(ContentPath), path);
-        }
-
-        public string ContentPath
-        {
-            get
-            {
-                return contentInitializer.CreateUserFolder(HttpContext.Current.Server);
-            }
-        }
+            fHelper = new FileBrowserHelper(true);
+        } 
 
         [WebMethod ]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public void Read(string path)
         {
-            path = NormalizePath(path);
+            path = fHelper.NormalizePath(path);
 
-            if (AuthorizeRead(path))
+            if (fHelper.AuthorizeRead(path))
             {
                 try
                 {
                     directoryBrowser.Server = HttpContext.Current.Server;
 
                     var result = directoryBrowser
-                        .GetContent(path, DefaultFilter)
+                        .GetContent(path, fHelper.DefaultFilter)
                         .Select(f => new Image_Result
                         {
                             name = f.Name,
@@ -125,9 +82,9 @@ namespace LDP.ROOT
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
         public void Thumbnail(string path)
         {
-            path = NormalizePath(path);
+            path = fHelper.NormalizePath(path);
 
-            if (AuthorizeThumbnail(path))
+            if (fHelper.AuthorizeThumbnail(path))
             {
                 var physicalPath = Server.MapPath(path);
 
@@ -135,7 +92,7 @@ namespace LDP.ROOT
                 {
                     HttpContext.Current.Response.AddFileDependency(physicalPath);
 
-                    CreateThumbnail(physicalPath);
+                    fHelper.CreateThumbnail(physicalPath,ThumbnailWidth,ThumbnailHeight);
                 }
                 else
                 {
@@ -148,30 +105,111 @@ namespace LDP.ROOT
             }
         }
 
-        private void CreateThumbnail(string physicalPath)
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void Image(string path)
         {
-            using (var fileStream = System.IO.File.OpenRead(physicalPath))
+            path = fHelper.NormalizePath(path);
+
+            if (fHelper.AuthorizeFile(path))
             {
-                var desiredSize = new ImageSize
+                var physicalPath = Server.MapPath(path);
+
+                if (System.IO.File.Exists(physicalPath))
                 {
-                    Width = ThumbnailWidth,
-                    Height = ThumbnailHeight
-                };
-
-                const string contentType = "image/png";
-
-                HttpContext.Current.Response.ContentType = contentType;
-                new MemoryStream(thumbnailCreator.Create(fileStream, desiredSize, contentType)).WriteTo(HttpContext.Current.Response.OutputStream);
+                    const string contentType = "image/png";
+                    HttpContext.Current.Response.ContentType = contentType;
+                    new MemoryStream(System.IO.File.ReadAllBytes(physicalPath)).WriteTo(HttpContext.Current.Response.OutputStream);
+ 
 
 
-                HttpContext.Current.Response.Flush();
-                HttpContext.Current.Response.End();
+                    HttpContext.Current.Response.Flush();
+                    HttpContext.Current.Response.End();
+
+                }
             }
+
+            //throw new HttpException(403, "Forbidden");
         }
 
-        public virtual bool AuthorizeThumbnail(string path)
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void Create(string path,string name, string size, string type )
         {
-            return CanAccess(path);
+            //FileBrowserEntry entry = new FileBrowserEntry();
+            path = fHelper.NormalizePath(path);
+
+            if (!string.IsNullOrEmpty(name) && fHelper.AuthorizeCreateDirectory(path, name))
+            {
+                var physicalPath = Path.Combine(Server.MapPath(path), name);
+
+                if (!Directory.Exists(physicalPath))
+                {
+                    Directory.CreateDirectory(physicalPath);
+                }
+
+                
+
+                HttpContext.Current.Response.Write(new JavaScriptSerializer().Serialize(new Image_Result
+                {
+                    name = name,
+                    type = "d",
+                    size = string.IsNullOrEmpty(size) ? 0: Convert.ToInt64(size)
+                }));
+            }
+
+           // throw new HttpException(403, "Forbidden");
         }
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void Destroy(string path, string name, string type)
+        {
+            path = fHelper.NormalizePath(path);
+
+            if (!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(type))
+            {
+                path = fHelper.CombinePaths(path, name);
+                if (type.ToLowerInvariant() == "f")
+                {
+                    fHelper.DeleteFile(path);
+                }
+                else
+                {
+                    fHelper.DeleteDirectory(path);
+                }
+
+                HttpContext.Current.Response.Write(new JavaScriptSerializer().Serialize(0));
+            }
+            //throw new HttpException(404, "File Not Found");
+        }
+
+
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public void Upload(string path, HttpPostedFileBase file)
+        {
+            path = fHelper.NormalizePath(path);
+            var fileName = Path.GetFileName(file.FileName);
+
+            if (fHelper.AuthorizeUpload(path, file))
+            {
+                file.SaveAs(Path.Combine(Server.MapPath(path), fileName));
+
+                HttpContext.Current.Response.Write(new JavaScriptSerializer().Serialize(new Image_Result
+                {
+                    name = fileName,
+                    type = "f",
+                    size = file.ContentLength
+                }));
+            }
+
+            //throw new HttpException(403, "Forbidden");
+        }
+
+        
+
+
+        
     }
 }
