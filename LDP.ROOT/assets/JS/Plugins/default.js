@@ -1,4 +1,8 @@
 ﻿
+$(document).ready(function () {
+    $.material.init();
+});
+
 ////////////////////////////////   DATA   /////////////////////////////////
 
 var success = 'success', error = 'error';
@@ -84,7 +88,7 @@ function methodParams(i) {
 ////////////////////////////////////////////////  EDITOR   //////////////////////////////
 
 function InitEditor(editorid) {
-    $(editor).kendoEditor({
+    $(editorid).kendoEditor({
         tools: [
             "bold",
             "italic",
@@ -173,4 +177,27 @@ function InitEditor(editorid) {
             }
         }
     });
+}
+
+
+/////////////////////////   HTML ///////////////////////////////
+
+function htmlEncode(value) {
+    return $('<div/>').text(value).html();
+}
+
+function htmlDecode(value) {
+    return $('<div/>').html(value).text();
+}
+
+
+function getUrlVars() {
+    var vars = [], hash;
+    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+    for (var i = 0; i < hashes.length; i++) {
+        hash = hashes[i].split('=');
+        vars.push(hash[0]);
+        vars[hash[0]] = hash[1];
+    }
+    return vars;
 }

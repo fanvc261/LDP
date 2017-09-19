@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminSite.master.cs" Inherits="LDP.ROOT.LDPAdmin.AdminSite" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="AdminSite.master.cs" Inherits="LDP.ROOT.LDPAdmin.AdminSite" ClientIDMode="Static" %>
 
 <!DOCTYPE html>
 
@@ -24,7 +24,9 @@
     <link rel="stylesheet" href="/assets/CSS/Plugins/kendo/kendo.common-material.min.css" />
     <link rel="stylesheet" href="/assets/CSS/Plugins/kendo//kendo.default.mobile.min.css" />
 
+
     <script src="/assets/JS/Plugins/kendo/kendo.all.min.js"></script>
+    <script src="/assets/JS/Plugins/material.min.js"></script>
     <!--if lt IE 9-->
     <script src="/assets/JS/Plugins/default.js"></script>
     

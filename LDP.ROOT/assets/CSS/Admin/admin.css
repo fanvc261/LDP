@@ -26,6 +26,7 @@ body {
 }
 .form-group {
   position: relative;
+  margin-bottom: 25px;
 }
 .form-group .form-control {
   border: 0;
@@ -308,9 +309,23 @@ body {
 }
 .main-content .wiget-content .wiget-content-left ul.nav li a {
   padding: 15px 0px;
+  -webkit-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  -o-transition: all 300ms ease;
+  -ms-transition: all 300ms ease;
+  transition: all 300ms ease;
 }
 .main-content .wiget-content .wiget-content-left ul.nav li a:hover,
 .main-content .wiget-content .wiget-content-left ul.nav li a:focus {
+  background: #eeeeee;
+  outline: none;
+  color: #000000;
+  margin: 0px -15px;
+  padding: 15px 15px;
+}
+.main-content .wiget-content .wiget-content-left ul.nav li.active a {
+  padding: 15px 0px;
+  background: #eeeeee;
   outline: none;
   color: #000000;
   margin: 0px -15px;

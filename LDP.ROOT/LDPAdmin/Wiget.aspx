@@ -14,14 +14,18 @@
             <div class="row">
                 <div class="col-md-3 wiget-content-left">
                     <div class="panel panel-default">
-                        <div class="panel-heading">Events</div>
+                        <div class="panel-heading">
+                            Danh sách<div class="pull-right">
+                                <button class="btn btn-danger panel-heading-btn-right" id="btnAddNew" type="button">Thêm mới</button>
+                            </div>
+                        </div>
                         <div class="panel-body">
-                            <asp:Repeater ID="rptWiget" runat="server" >
+                            <asp:Repeater ID="rptWiget" runat="server">
                                 <HeaderTemplate>
-                                    <ul class="nav">
+                                    <ul class="nav nav-wiget">
                                 </HeaderTemplate>
-                                <ItemTemplate >
-                                    <li><a class="text-15" data_id="<%# Eval("Id") %>" data_guid="<%# Eval("WigetGuid") %>" href="#" alt="<%# Eval("Name") %>"> <%# Eval("Name") %></a></li>
+                                <ItemTemplate>
+                                    <li><a class="text-15" data_id="<%# Eval("Id") %>" data_guid="<%# Eval("WigetGuid") %>" href="#" alt="<%# Eval("Name") %>"><%# Eval("Name") %></a></li>
                                 </ItemTemplate>
                                 <FooterTemplate>
                                     </ul>
@@ -33,12 +37,70 @@
 
                 <div class="col-md-9 wiget-content-right">
                     <div class="panel panel-default">
-                        <div class="panel-heading">Events</div>
+                        <div class="panel-heading">
+                            <span id="editTitle">Thêm mới</span>
+                            <div class="pull-right">
+                                <button class="btn btn-danger panel-heading-btn-right" id="btnDelete" type="button">Xóa</button>
+                                <button class="btn btn-danger panel-heading-btn-right" id="btnSave" type="button">Thêm mới</button>
+                            </div>
+                        </div>
                         <div class="panel-body">
-
-                            <div id="example">
-                                <textarea id="txtContent" rows="10" cols="30" style="height: 440px" aria-label="editor">
-                                </textarea> 
+                            <div id="wiget-box">
+                                <div class="row">
+                                    <div class="col-md-9">
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Tên</label>
+                                            <asp:TextBox ID="txtName" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <span class="material-input"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Thứ tự </label>
+                                            <asp:TextBox ID="txtRank" runat="server" CssClass="form-control" type="number"></asp:TextBox>
+                                            <span class="material-input"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3" id="divContainer">
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Khu vực</label>
+                                            <asp:DropDownList ID="ddlContainer" CssClass="form-control" runat="server"></asp:DropDownList>
+                                            <span class="material-input"></span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <div class="form-group label-floating">
+                                            <label class="control-label">Class</label>
+                                            <asp:TextBox ID="txtBodyClass" runat="server" CssClass="form-control"></asp:TextBox>
+                                            <span class="material-input"></span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <div class="togglebutton">
+                                                <label>
+                                                    <asp:CheckBox ID="cbHide" runat="server" />
+                                                    Ẩn
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <div class="togglebutton">
+                                                <label>
+                                                    <asp:CheckBox ID="cbAllPage" runat="server" />
+                                                    Dùng chung
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <textarea id="txtContent" runat="server" rows="10" cols="30" style="height: 440px" aria-label="editor">
+                                </textarea>
                             </div>
 
                         </div>

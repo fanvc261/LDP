@@ -12,7 +12,7 @@ namespace LDP.ROOT.Helper
     {
         public static string RenderWigetCtr( Wiget wiget, int status)
         {
-            return wiget.Content;
+            return HttpUtility.HtmlDecode(wiget.Content);
         }
     }
 }

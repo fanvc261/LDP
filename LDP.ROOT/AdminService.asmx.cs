@@ -139,8 +139,72 @@ namespace LDP.ROOT
                 };
             }
         }
+
+        [WebMethod]
+        public string_Result Wiget_Update(int id, string name, int pageId,int rank, int status, int option,string classBody,string containerGuid, string content)
+        {
+            try
+            {
+                if (!CheckAuthorize())
+                {
+                    return new string_Result()
+                    {
+                        success = 0,
+                        data = null,
+                        error = new WebService_Error_Result()
+                        {
+                            code = 0,
+                            message = "No Login"
+                        }
+                    };
+                }
+                Wiget obj;
+                if (id > 0)
+                {
+                    obj = new Wiget(id);
+                }
+                else
+                {
+                    obj = new Wiget();
+                    obj.PageId = pageId;
+                    obj.WigetGuid = Guid.NewGuid();
+                }
+                obj.Name = name;
+                obj.ClassBody = classBody;
+                obj.ContainerGuid = new Guid(containerGuid); 
+                obj.Content = content;
+                obj.Option = option;              
+                obj.Rank = rank;
+                obj.Status = status;
+                obj.Save();
+                return new string_Result()
+                {
+                    success = 1,
+                    data = obj.Save() ? "1" : "0",
+                    error = new WebService_Error_Result()
+                    {
+                        code = 1,
+                        message = "success"
+                    }
+                };
+            }
+            catch (Exception e)
+            {
+                return new string_Result()
+                {
+                    success = 0,
+                    data = null,
+                    error = new WebService_Error_Result()
+                    {
+                        code = 0,
+                        message = e.ToString()
+                    }
+                };
+            }
+        }
         private bool CheckAuthorize()
         {
+            return true;
             return siteSetting.IsAuthenticated;
         }
     }

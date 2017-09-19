@@ -33,6 +33,7 @@ body {
 
 .form-group {
     position: relative;
+    margin-bottom:25px;
     .form-control {
         border: 0;
         background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#D2D2D2, #D2D2D2);
@@ -313,17 +314,26 @@ body {
 
                 a {
                     padding: 15px 0px;
-
+                    .transition-property(all, 300ms, ease);
                     &:hover,
                     &:focus {
-                        //background: none;
+                        background: #eeeeee;
                         outline: none;
                         color: @color-admin-link;
                         margin: 0px -15px;
                         padding: 15px 15px;
                     }
                 }
-
+                &.active {
+                    a {
+                    padding: 15px 0px;
+                        background: #eeeeee;
+                        outline: none;
+                        color: @color-admin-link;
+                        margin: 0px -15px;
+                        padding: 15px 15px;
+                }
+                }
                 &:first-child {
                     a {
                     }

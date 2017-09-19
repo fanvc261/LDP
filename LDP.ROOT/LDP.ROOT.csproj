@@ -1503,6 +1503,7 @@
     <Content Include="AdminService.asmx" />
     <Content Include="assets\JS\Plugins\material.min.js" />
     <Content Include="data\editor\avatar.jpg" />
+    <Content Include="data\xml\container.xml" />
     <Content Include="FileService.asmx" />
     <Content Include="ImageService.asmx" />
     <Content Include="DataService.asmx" />
@@ -1577,6 +1578,7 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Models\XMLModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Upload.ashx.cs">
       <DependentUpon>Upload.ashx</DependentUpon>

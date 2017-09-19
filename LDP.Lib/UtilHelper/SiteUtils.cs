@@ -78,6 +78,14 @@ namespace LDP.Lib.Common
             return GetApplicationParth() + "/data/XSL/" + filename;
         }
 
+
+        public static string GetXmlDataUrl(string filename)
+        {
+
+            return GetApplicationParth() + "/data/xml/" + filename;
+        }
+
+
         public static string GetPhoneToken()
         {
             string result = "";
