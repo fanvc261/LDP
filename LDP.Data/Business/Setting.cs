@@ -37,6 +37,13 @@ namespace LDP.Business
                 id);
         }
 
+        public Setting(
+            string name)
+        {
+            GetSetting(
+                name);
+        }
+
         #endregion
 
         #region Private Properties
@@ -96,6 +103,20 @@ namespace LDP.Business
 
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="name"></param>
+        private void GetSetting(
+           string name)
+        {
+            using (IDataReader reader = DBSetting.GetOne(
+                name))
+            {
+                PopulateFromReader(reader);
+            }
+
+        }
 
         private void PopulateFromReader(IDataReader reader)
         {

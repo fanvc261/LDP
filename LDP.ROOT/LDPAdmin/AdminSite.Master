@@ -45,41 +45,41 @@
                         </div>
                         <div class="info mrt5">
                             <a href="#collapseExample" class="collapsed">
-                                <span>Tania Andrew
+                                <span>Administrator
                                 </span>
                             </a>
                         </div>
                     </div>
                     <ul class="nav">
-                        <li class="active">
+                       <%-- <li class="active">
                             <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./dashboard.html">
                                 <i class="material-icons">dashboard</i>
                                 <p>Dashboard</p>
                             </a>
-                        </li>
+                        </li>--%>
                         <li class="active">
                             <a class="mrt10 mrl15 mrr15 pdl10 pdr10" data-toggle="collapse" aria-expanded="true" href="#pagesExamples">
                                 <i class="material-icons">image</i>
                                 <p>
-                                    Pages
+                                    Quản lý nội dung
                                 <b class="caret mrt15"></b>
                                 </p>
                             </a>
-                            <div class="collapse in" id="pagesExamples">
+                            <div class="collapse in" id="pagesWiget">
                                 <ul class="nav">
                                     <li class="active">
-                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./pages/pricing.html">
-                                            <span class="sidebar-mini left mrr15">P</span>
-                                            <span class="sidebar-normal">Pricing</span>
+                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="/LDPAdmin/Wiget.aspx?pageId=1">
+                                            <span class="sidebar-mini left mrr15">H</span>
+                                            <span class="sidebar-normal">Hompage</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./pages/timeline.html">
-                                            <span class="sidebar-mini left mrr15">T</span>
-                                            <span class="sidebar-normal">Timeline</span>
+                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="/LDPAdmin/Wiget.aspx?pageId=2">
+                                            <span class="sidebar-mini left mrr15">TK</span>
+                                            <span class="sidebar-normal">Thank you</span>
                                         </a>
                                     </li>
-                                    <li>
+                                    <%--<li>
                                         <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./pages/login.html">
                                             <span class="sidebar-mini left mrr15">LP</span>
                                             <span class="sidebar-normal">Login Page</span>
@@ -102,7 +102,7 @@
                                             <span class="sidebar-mini left mrr15">UP</span>
                                             <span class="sidebar-normal">User Profile</span>
                                         </a>
-                                    </li>
+                                    </li>--%>
                                 </ul>
                             </div>
                         </li>
@@ -110,25 +110,25 @@
                             <a class="mrt10 mrl15 mrr15 pdl10 pdr10" data-toggle="collapse" href="#componentsExamples">
                                 <i class="material-icons">apps</i>
                                 <p>
-                                    Components
+                                    Cấu hình
                                 <b class="caret mrt15"></b>
                                 </p>
                             </a>
                             <div class="collapse" id="componentsExamples">
                                 <ul class="nav">
                                     <li>
-                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./components/buttons.html">
-                                            <span class="sidebar-mini left mrr15">B</span>
-                                            <span class="sidebar-normal">Buttons</span>
+                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="/LDPAdmin/SEO.aspx">
+                                            <span class="sidebar-mini left mrr15">SEO</span>
+                                            <span class="sidebar-normal">SEO</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./components/grid.html">
-                                            <span class="sidebar-mini left mrr15">GS</span>
-                                            <span class="sidebar-normal">Grid System</span>
+                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="/LDPAdmin/Embed.aspx">
+                                            <span class="sidebar-mini left mrr15">E</span>
+                                            <span class="sidebar-normal">Embed</span>
                                         </a>
                                     </li>
-                                    <li>
+                                    <<%--li>
                                         <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./components/panels.html">
                                             <span class="sidebar-mini left mrr15">P</span>
                                             <span class="sidebar-normal">Panels</span>
@@ -157,11 +157,11 @@
                                             <span class="sidebar-mini left mrr15">T</span>
                                             <span class="sidebar-normal">Typography</span>
                                         </a>
-                                    </li>
+                                    </li>--%>
                                 </ul>
                             </div>
                         </li>
-                        <li>
+                        <%--<li>
                             <a class="mrt10 mrl15 mrr15 pdl10 pdr10" data-toggle="collapse" href="#formsExamples">
                                 <i class="material-icons">content_paste</i>
                                 <p>
@@ -259,14 +259,14 @@
                                     </li>
                                 </ul>
                             </div>
-                        </li>
+                        </li>--%>
                         <li>
-                            <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./widgets.html">
+                            <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="#">
                                 <i class="material-icons">widgets</i>
-                                <p>Widgets</p>
+                                <p>Danh sách đăng ký</p>
                             </a>
                         </li>
-                        <li>
+                        <%--<li>
                             <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./charts.html">
                                 <i class="material-icons">timeline</i>
                                 <p>Charts</p>
@@ -277,7 +277,7 @@
                                 <i class="material-icons">date_range</i>
                                 <p>Calendar</p>
                             </a>
-                        </li>
+                        </li>--%>
                     </ul>
                 </div>
                 <div class="sidebar-background"></div>

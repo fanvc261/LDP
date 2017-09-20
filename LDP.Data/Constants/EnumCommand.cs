@@ -9,6 +9,12 @@ using System.Threading.Tasks;
 
 namespace LDP.Data.Constants
 {
+    public enum CategoryStatus
+    {
+        None = 0,
+        Active = 1
+    }
+
     public enum WigetStatus
     {
         None = 0,

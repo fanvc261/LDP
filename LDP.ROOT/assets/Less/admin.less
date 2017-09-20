@@ -9,6 +9,105 @@ body {
 }
 
 
+.togglebutton {
+    vertical-align: middle;
+
+    &, label, input, .toggle {
+        user-select: none;
+    }
+
+    label {
+        cursor: pointer;
+        color: rgba(0, 0, 0, 0.26);
+
+        .form-group.is-focused & {
+            color: rgba(0, 0, 0, 0.26);
+            // on focus just darken the specific labels, do not turn them to the brand-primary
+            &:hover,
+            &:focus {
+                color: rgba(0, 0, 0, 0.54);
+            }
+            // correct the above focus color for disabled items
+            fieldset[disabled] & {
+                color: rgba(0, 0, 0, 0.26);
+            }
+        }
+        // Hide original checkbox
+        input[type=checkbox] {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle {
+            text-align: left; // Issue #737 horizontal form
+            margin-left: 5px;
+        }
+        // Switch bg off and disabled
+        .toggle,
+        input[type=checkbox][disabled] + .toggle {
+            content: "";
+            display: inline-block;
+            width: 30px;
+            height: 15px;
+            background-color: rgba(80, 80, 80, 0.7);
+            border-radius: 15px;
+            margin-right: 15px;
+            transition: background 0.3s ease;
+            vertical-align: middle;
+        }
+        // Handle off
+        .toggle:after {
+            content: "";
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background-color: #FFFFFF;
+            border-radius: 20px;
+            position: relative;
+            box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4);
+            left: -5px;
+            top: -3px;
+            border: 1px solid rgba(0, 0, 0, 0.54);
+            transition: left 0.3s ease, background 0.3s ease, box-shadow 0.1s ease;
+        }
+
+        input[type=checkbox] {
+            // Handle disabled
+            &[disabled] {
+                & + .toggle:after,
+                &:checked + .toggle:after {
+                    background-color: #BDBDBD;
+                }
+            }
+
+            & + .toggle:active:after,
+            &[disabled] + .toggle:active:after {
+                box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 0, 0, 0.1);
+            }
+            // Ripple off and disabled
+            &:checked + .toggle:after {
+                left: 15px;
+            }
+        }
+        // set bg when checked
+        input[type=checkbox]:checked {
+            + .toggle {
+                background-color: rgba(156, 39, 176, 0.7); // Switch bg on
+            }
+
+            + .toggle:after {
+                border-color: #9c27b0; // Handle on
+            }
+
+            + .toggle:active:after {
+                box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(156, 39, 176, 0.7); // Ripple on
+            }
+        }
+    }
+}
+
+
 .label-floating,
 .label-placeholder {
     label.control-label {
@@ -32,8 +131,13 @@ body {
 }
 
 .form-group {
+    label {
+        font-weight: normal;
+    }
+
     position: relative;
-    margin-bottom:25px;
+    margin-bottom: 25px;
+
     .form-control {
         border: 0;
         background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#D2D2D2, #D2D2D2);
@@ -46,7 +150,7 @@ body {
         box-shadow: none;
         border-radius: 0;
         font-weight: 400;
-        padding:5px 0px;
+        padding: 5px 0px;
     }
 
     &.label-static,
@@ -56,7 +160,7 @@ body {
             position: absolute;
             pointer-events: none;
             transition: 0.3s ease all;
-            margin-top:15px;
+            margin-top: 15px;
             font-weight: 400;
         }
     }
@@ -72,7 +176,7 @@ body {
         }
     }
 
-    &.is-focused,&:focus {
+    &.is-focused, &:focus {
         .form-control {
             outline: none;
             background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#D2D2D2, #D2D2D2);
@@ -84,7 +188,6 @@ body {
                 background-color: #9c27b0;
             }
         }
-
         //.variations(unquote(".is-focused.label-placeholder label.control-label"), color, $mdb-input-placeholder-color);  // default label color variations
         &.label-placeholder {
             label,
@@ -315,6 +418,7 @@ body {
                 a {
                     padding: 15px 0px;
                     .transition-property(all, 300ms, ease);
+
                     &:hover,
                     &:focus {
                         background: #eeeeee;
@@ -324,18 +428,40 @@ body {
                         padding: 15px 15px;
                     }
                 }
+
                 &.active {
                     a {
-                    padding: 15px 0px;
+                        padding: 15px 0px;
                         background: #eeeeee;
                         outline: none;
                         color: @color-admin-link;
                         margin: 0px -15px;
                         padding: 15px 15px;
+                    }
                 }
-                }
+
                 &:first-child {
                     a {
+                    }
+                }
+            }
+        }
+    }
+
+    .embed-content {
+
+        #embed-box {
+            .nav-pills {
+                display:inline-block;
+
+                li {
+                    a {
+                        padding:15px;
+                        width:100px;
+                        .material-icons {
+                            display:block;
+                            padding:10px;
+                        }
                     }
                 }
             }

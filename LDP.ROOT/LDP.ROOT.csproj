@@ -469,6 +469,8 @@
     <Content Include="assets\CSS\Plugins\kendo\Uniform\sprite_2x.png" />
     <Content Include="assets\CSS\Plugins\kendo\Uniform\sprite_kpi.png" />
     <Content Include="assets\CSS\Plugins\kendo\Uniform\sprite_kpi_2x.png" />
+    <Content Include="assets\JS\Admin\Embed.js" />
+    <Content Include="assets\JS\Admin\SEO.js" />
     <Content Include="assets\JS\Admin\Wiget.js" />
     <Content Include="assets\JS\Plugins\bk_handsontable.full.min.js" />
     <Content Include="assets\JS\Plugins\default.js" />
@@ -1511,6 +1513,8 @@
     <Content Include="Global.asax" />
     <Content Include="Default.aspx" />
     <Content Include="LDPAdmin\Admin.html" />
+    <Content Include="LDPAdmin\Embed.aspx" />
+    <Content Include="LDPAdmin\SEO.aspx" />
     <Content Include="LDPAdmin\Wiget.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -1538,6 +1542,20 @@
     </Compile>
     <Compile Include="LDPAdmin\AdminSite.Master.designer.cs">
       <DependentUpon>AdminSite.Master</DependentUpon>
+    </Compile>
+    <Compile Include="LDPAdmin\Embed.aspx.cs">
+      <DependentUpon>Embed.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LDPAdmin\Embed.aspx.designer.cs">
+      <DependentUpon>Embed.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LDPAdmin\SEO.aspx.cs">
+      <DependentUpon>SEO.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LDPAdmin\SEO.aspx.designer.cs">
+      <DependentUpon>SEO.aspx</DependentUpon>
     </Compile>
     <Compile Include="LDPAdmin\Wiget.aspx.cs">
       <DependentUpon>Wiget.aspx</DependentUpon>
@@ -2794,6 +2812,12 @@
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Admin.Designer.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LDPAdmin\App_LocalResources\SEO.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LDPAdmin\App_LocalResources\Embed.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -10,7 +10,7 @@
             <i class="material-icons">apps</i>
         </div>
         <div class="box-body pd15">
-            <h4 class="box-content-title pdb15 mrt0 mrb5">Global Sales by Top Locations</h4>
+            <h4 class="box-content-title pdb15 mrt0 mrb5">Quản lý nội dung</h4>
             <div class="row">
                 <div class="col-md-3 wiget-content-left">
                     <div class="panel panel-default">

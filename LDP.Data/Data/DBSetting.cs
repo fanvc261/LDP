@@ -106,6 +106,15 @@ namespace LDP.Data
 
         }
 
+
+        public static IDataReader GetOne(
+            string name)
+        {
+            SqlParameterHelper sph = new SqlParameterHelper(ConnectionString.GetReadConnectionString(), "Setting_SelectOneByName", 1);
+            sph.DefineSqlParameter("@Name", SqlDbType.NVarChar,1000, ParameterDirection.Input, name);
+            return sph.ExecuteReader();
+
+        }
         /// <summary>
         /// Gets a count of rows in the Setting table.
         /// </summary>

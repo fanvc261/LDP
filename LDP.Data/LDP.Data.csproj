@@ -53,12 +53,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business\Category.cs" />
     <Compile Include="Business\Wiget.cs" />
     <Compile Include="Business\Setting.cs" />
     <Compile Include="Business\User.cs" />
     <Compile Include="Constants\EnumCommand.cs" />
     <Compile Include="ControlExt.cs" />
     <Compile Include="DataSetExt.cs" />
+    <Compile Include="Data\DBCategory.cs" />
     <Compile Include="Data\DBWiget.cs" />
     <Compile Include="Data\DBSetting.cs" />
     <Compile Include="Data\DBUser.cs" />

@@ -37,6 +37,14 @@ $(document).ready(function () {
         $("#btnSave").prop('disabled', true);
         saveWiget(id, name, pageId, rank, status, option, classBody, containerGuid, content);
     });
+
+    $(document).on("click", "#btnDelete", function () {
+        if (confirm("Bạn có chắt muốn xóa dữ liệu ?")) {
+            let id = curId;
+            $("#btnDelete").prop('disabled', true);
+            deleteWiget(id);
+        }
+    });
 })
 
 var loadWiget = function (id) {
@@ -59,6 +67,11 @@ var saveWiget = function (id, name, pageId, rank, status, option, classBody, con
     callMethod_1("Wiget_Update", p, saveWigetCallback);
 }
 
+var deleteWiget = function (id) {
+    let p = new methodParams();
+    p.addParam("id", id);
+    callMethod_1("Wiget_DeleteById", p, deleteWigetCallback);
+}
 
 function loadWigetCallback(result) {
     loadForm(result.data)
@@ -66,6 +79,11 @@ function loadWigetCallback(result) {
 
 function saveWigetCallback(result) {
     $("#btnSave").prop('disabled', false);
+    alert(result);
+}
+
+function deleteWigetCallback(result) {
+    $("#btnDelete").prop('disabled', false);
     alert(result);
 }
 
