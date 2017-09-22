@@ -131,6 +131,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\LDP_script.sql" />
     <Content Include="assets\CSS\Admin\admin.css" />
     <Content Include="assets\CSS\Admin\admin.min.css">
       <DependentUpon>admin.css</DependentUpon>
@@ -2808,7 +2809,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="App_LocalResources\" />
     <Folder Include="assets\JS\Site\" />
     <Folder Include="controls\" />
