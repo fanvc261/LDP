@@ -1,0 +1,33 @@
+@import "setup";
+
+body {
+    margin: 0;
+    padding: 0;
+    font-weight: 300;
+    line-height: 1.5em;
+}
+
+.wiget-control {
+    .wiget-content-actions {
+        display:none;
+        position:absolute;
+        .material-icons {
+            padding:10px;
+            background:@color-wiget-edit;
+            color:@color-wiget-ctr;
+            cursor:pointer;
+        }
+    }
+    &.wiget-md-edit{
+        border: 1px dashed @color-wiget-edit;
+        position:relative;
+        min-height:50px;
+        &:hover{
+            .wiget-content-actions {
+                display:block;
+            }
+        }
+    }
+    
+    
+}

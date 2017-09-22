@@ -1,4 +1,5 @@
 ﻿using LDP.Business;
+using LDP.Data.Constants;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,19 @@ namespace LDP.ROOT.Helper
     {
         public static string RenderWigetCtr( Wiget wiget, int status)
         {
-            return HttpUtility.HtmlDecode(wiget.Content);
+            string classwiget = "wiget-control " + wiget.ClassBody;
+            string ctrEdit = "";
+            //if ((status & (int)PageStatus.Admin) > 0)
+            {
+                classwiget += " wiget-md-edit";
+                ctrEdit += "<div class='wiget-content-actions'>";
+                ctrEdit += "<i class='material-icons wiget-content-button wiget-content-edit-inline'>filter_center_focus</i>";
+                ctrEdit += "<i class='material-icons wiget-content-button wiget-content-edit'>edit</i>";
+                ctrEdit += "</div>";
+            }             
+            //else
+            //    classwiget += " wiget-md-view";
+            return HttpUtility.HtmlDecode("<div class='" + classwiget + "' data-id='" + wiget.Id.ToString() + "'>" + ctrEdit + "<div class='wiget-content-body'>" +  wiget.Content + "</div></div>");
         }
     }
 }

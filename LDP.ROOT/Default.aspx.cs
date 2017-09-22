@@ -15,7 +15,6 @@ namespace LDP.ROOT
     {
         protected void Page_Init(object sender, EventArgs e)
         {
-            PageId = 1;
         }
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -32,7 +31,7 @@ namespace LDP.ROOT
                 if ((item.Status & (int)WigetStatus.Active) > 0)
                 {
                     Literal ltrWiget = new Literal();
-                    ltrWiget.Text = RenderHelper.RenderWigetCtr(item,siteSetting.SiteStatus);
+                    ltrWiget.Text = PageId.ToString() + "_" +  RenderHelper.RenderWigetCtr(item,siteSetting.SiteStatus);
                     switch (item.ContainerGuid.ToString())
                     {
                         case ContainerGuid.GuidHeader:

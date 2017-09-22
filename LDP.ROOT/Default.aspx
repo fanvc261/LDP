@@ -7,13 +7,16 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>LDP</title>
-
+    <asp:Literal ID="ltrMeta" runat="server" ></asp:Literal>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" type="text/css" href="/assets/CSS/Site/site.css" />
     <!--if lt IE 9-->
     <script src="assets/js/html5shiv.js"></script>
     <!-- Favicons ==================================================-->
+    <asp:PlaceHolder ID="phHeader"  runat="server" ></asp:PlaceHolder>
 </head>
 <body>
+    <asp:PlaceHolder ID="phBody"  runat="server" ></asp:PlaceHolder>
     <form id="form1" runat="server">
         <asp:PlaceHolder ID="phContentHeader"  runat="server" ></asp:PlaceHolder> <%--ContainerGuid="f50432a6-0000-43a7-a68f-ca088f05af7b"--%>
         <asp:PlaceHolder ID="phContentTop" runat="server" ></asp:PlaceHolder>  <%--ContainerGuid="ecf1d679-58ad-44cc-84b4-62c28cd6a280"--%>           
@@ -24,5 +27,5 @@
     </form>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
+<asp:PlaceHolder ID="phFooter"  runat="server" ></asp:PlaceHolder>
 </html>

@@ -16,5 +16,9 @@
   {
     "outputFile": "assets/CSS/Admin/admin.css",
     "inputFile": "assets/Less/admin.less"
+  },
+  {
+    "outputFile": "assets/CSS/Site/site.css",
+    "inputFile": "assets/Less/site.less"
   }
 ]

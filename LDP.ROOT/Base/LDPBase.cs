@@ -1,4 +1,5 @@
-﻿using LDP.ROOT.Helper;
+﻿using LDP.Lib.Common;
+using LDP.ROOT.Helper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +37,9 @@ namespace LDP.ROOT.Base
 
         protected override void OnLoad(EventArgs e)
         {
+            PageId = 1;
+            if (HttpContext.Current.Items["pageid"] != null)
+                PageId = string.IsNullOrEmpty(HttpContext.Current.Items["pageid"].ToString()) ?1:Convert.ToInt32(HttpContext.Current.Items["pageid"].ToString());
             base.OnLoad(e);
         }
         

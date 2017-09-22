@@ -1,5 +1,6 @@
 ﻿var curId = 2;
 $(document).ready(function () {
+    activeMenu('mn_em');
     loadEmbed(1);
     loadEmbed(2);
 

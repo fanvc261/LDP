@@ -1,5 +1,6 @@
 ﻿var curId = 0;
 $(document).ready(function () {
+    activeMenu('mn_seo');
     loadCategory();
     $(document).on("change", "#ddlCategory", function () {
         loadCategory();

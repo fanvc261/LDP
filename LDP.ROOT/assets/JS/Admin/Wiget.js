@@ -9,6 +9,10 @@ $(document).ready(function () {
     else {
         curPageId = '0';
     }
+    if (curPageId==1)
+        activeMenu('mn_hp');
+    else if (curPageId == 2)
+        activeMenu('mn_tk');
     resetForm();
 
     $(document).on("click", ".nav-wiget li a", function () {
