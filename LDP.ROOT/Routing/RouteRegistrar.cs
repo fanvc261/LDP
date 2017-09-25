@@ -21,9 +21,9 @@ namespace LDP.Web.Routing
             {
                 foreach (Category item in Category.GetAll())
                 {
-                    //RouteTable.Routes.MapPageRoute("Category" + item.Id, item.SeName, "~/Default.aspx?pageid="+ item.Id);
+                    RouteTable.Routes.MapPageRoute("Category" + item.Id, item.SeName, "~/Default.aspx?pageid="+ item.Id);
                     // RouteTable.Routes.MapPageRoute("Category" + item.Id, "{sename}", "~/Default.aspx");
-                    routes.Add("Category" + item.Id, new Route("{sename}", new CustomRouteHandler("~/Default.aspx", item.Id)));
+                    //routes.Add("Category" + item.Id, new Route("{sename}", new CustomRouteHandler("~/Default.aspx", item.Id)));
                 }
 
 

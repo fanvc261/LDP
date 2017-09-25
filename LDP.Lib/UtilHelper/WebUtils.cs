@@ -360,7 +360,11 @@ namespace LDP.Lib.Common
 
         }
 
-
+        public static string LoadParamFromURL(String paramName,  String rawUrl)
+        {
+            string queryString = GetQueryString(rawUrl);
+            return HttpUtility.ParseQueryString(queryString)[paramName];
+        }
 
         public static string BuildQueryString(string leaveOutParam)
         {

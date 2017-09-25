@@ -23,7 +23,7 @@ namespace LDP.ROOT.Base
         void LDPBase_Init(object sender, EventArgs e)
         {
             siteSetting = SiteSettings.GetCurrentSiteSettings();
-        }    
+        }
 
         protected override void InitializeCulture()
         {
@@ -38,11 +38,13 @@ namespace LDP.ROOT.Base
         protected override void OnLoad(EventArgs e)
         {
             PageId = 1;
-            if (HttpContext.Current.Items["pageid"] != null)
-                PageId = string.IsNullOrEmpty(HttpContext.Current.Items["pageid"].ToString()) ?1:Convert.ToInt32(HttpContext.Current.Items["pageid"].ToString());
+            string virtualPath = RouteData.Route != null ? ((System.Web.Routing.PageRouteHandler)RouteData.RouteHandler).VirtualPath : "";
+            string spage = WebUtils.LoadParamFromURL("pageid", virtualPath);
+            //if (spage != null)
+            PageId = string.IsNullOrEmpty(spage) ? 1 : Convert.ToInt32(spage);
             base.OnLoad(e);
         }
-        
+
         private bool isAuthorized()
         {
             if (Context.User.Identity.IsAuthenticated)
