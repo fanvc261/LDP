@@ -9,6 +9,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <asp:Literal ID="ltrMeta" runat="server" ></asp:Literal>
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
+    <link rel="stylesheet" type="text/css" href="/assets/CSS/Plugins/kendo/kendo.common.min.css" />
+    <link rel="stylesheet" href="/assets/CSS/Plugins/kendo/kendo.default.min.css" />
+    <link rel="stylesheet" href="/assets/CSS/Plugins/kendo/kendo.common-material.min.css" />
+    <link rel="stylesheet" href="/assets/CSS/Plugins/kendo//kendo.default.mobile.min.css" />
+
+
+
     <link rel="stylesheet" type="text/css" href="/assets/CSS/Site/site.css" />
     <!--if lt IE 9-->
     <script src="assets/js/html5shiv.js"></script>
@@ -27,5 +35,10 @@
     </form>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    
+    <script src="/assets/JS/Plugins/kendo/kendo.all.min.js"></script>
+    <script src="/assets/JS/Plugins/material.min.js"></script>
+    <script src="/assets/JS/Plugins/default.js"></script>
+    <script src="/assets/JS/Site/admin.js"></script>
 <asp:PlaceHolder ID="phFooter"  runat="server" ></asp:PlaceHolder>
 </html>

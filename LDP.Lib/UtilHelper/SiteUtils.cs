@@ -21,6 +21,7 @@ namespace LDP.Lib.Common
             }
             return result;
         }
+
         public static string ServerVariables(string name)
         {
             string tmpS = string.Empty;

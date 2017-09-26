@@ -339,11 +339,7 @@ namespace LDP.Lib.Common
             {
                 HttpContext.Current.Response.Redirect("http" + url.Remove(0, 5), false);
             }
-        }
-
-        
-
-
+        }     
 
         public static string GetQueryString(string rawUrl)
         {

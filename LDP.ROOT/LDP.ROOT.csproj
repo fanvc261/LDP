@@ -496,6 +496,10 @@
     <Content Include="assets\JS\Admin\SEO.js" />
     <Content Include="assets\JS\Admin\Wiget.js" />
     <Content Include="assets\JS\Plugins\bk_handsontable.full.min.js" />
+    <Content Include="assets\JS\Plugins\bootstrap-notify.js" />
+    <Content Include="assets\JS\Plugins\bootstrap-notify.min.js" />
+    <Content Include="assets\JS\Plugins\bootstrap.js" />
+    <Content Include="assets\JS\Plugins\bootstrap.min.js" />
     <Content Include="assets\JS\Plugins\default.js" />
     <Content Include="assets\JS\Plugins\handsontable.full.min.js" />
     <Content Include="assets\JS\Plugins\html5shiv.js" />
@@ -1527,8 +1531,10 @@
     <Content Include="assets\JS\Plugins\less.min.js" />
     <Content Include="AdminService.asmx" />
     <Content Include="assets\JS\Plugins\material.min.js" />
+    <Content Include="assets\JS\Site\admin.js" />
     <Content Include="data\editor\avatar.jpg" />
     <Content Include="data\xml\container.xml" />
+    <Content Include="Login.aspx" />
     <Content Include="FileService.asmx" />
     <Content Include="ImageService.asmx" />
     <Content Include="DataService.asmx" />
@@ -1558,6 +1564,13 @@
     <Compile Include="AdminService.asmx.cs">
       <DependentUpon>AdminService.asmx</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="LDPAdmin\AdminSite.Master.cs">
       <DependentUpon>AdminSite.Master</DependentUpon>
@@ -2810,7 +2823,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_LocalResources\" />
-    <Folder Include="assets\JS\Site\" />
     <Folder Include="controls\" />
     <Folder Include="data\systemfiles\" />
     <Folder Include="data\xsl\" />

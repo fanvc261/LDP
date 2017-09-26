@@ -7,27 +7,60 @@ body {
     line-height: 1.5em;
 }
 
+.k-widget.k-window.k-window-titleless {
+    display: none !important;
+    z-index: 0;
+    opacity: 0;
+}
+
+.k-editor-inline {
+    margin: 0;
+    padding: 0;
+    border: none;
+    line-height:1.5em;
+}
+
 .wiget-control {
     .wiget-content-actions {
-        display:none;
-        position:absolute;
+        display: none;
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+
         .material-icons {
-            padding:10px;
-            background:@color-wiget-edit;
-            color:@color-wiget-ctr;
-            cursor:pointer;
+            padding: 2px;
+            background: @color-wiget-edit;
+            color: @color-wiget-ctr;
+            cursor: pointer;
+            font-size: 20px;
+
+            &.icons-inline {
+                display: none;
+            }
         }
-    }
-    &.wiget-md-edit{
-        border: 1px dashed @color-wiget-edit;
-        position:relative;
-        min-height:50px;
-        &:hover{
-            .wiget-content-actions {
-                display:block;
+
+        &.actions-editting {
+            z-index: 999;
+
+            .material-icons {
+                display: none;
+
+                &.icons-inline {
+                    display: inline-block;
+                }
             }
         }
     }
-    
-    
+
+    &.wiget-md-edit {
+        border: 1px dashed @color-wiget-edit;
+        position: relative;
+        min-height: 50px;
+
+        &:hover {
+            .wiget-content-actions {
+                display: block;
+            }
+        }
+    }
 }
