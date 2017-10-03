@@ -219,6 +219,77 @@ namespace LDP.ROOT
         }
 
         [WebMethod]
+        public string_Result Wiget_UpdateContent(int id, string content)
+        {
+            try
+            {
+                if (!CheckAuthorize())
+                {
+                    return new string_Result()
+                    {
+                        success = 0,
+                        data = null,
+                        error = new WebService_Error_Result()
+                        {
+                            code = 0,
+                            message = "No Login"
+                        }
+                    };
+                }
+                Wiget obj;
+                if (id > 0)
+                {
+                    obj = new Wiget(id);
+                }
+                else
+                {
+                    obj = new Wiget();
+                    
+                }
+
+                if (obj.Id<=0)
+                {
+                    return new string_Result()
+                    {
+                        success = 0,
+                        data = null,
+                        error = new WebService_Error_Result()
+                        {
+                            code = 0,
+                            message = "No data"
+                        }
+                    };
+                }
+                obj.Content = content;
+                obj.Save();
+                return new string_Result()
+                {
+                    success = 1,
+                    data = obj.Save() ? "1" : "0",
+                    error = new WebService_Error_Result()
+                    {
+                        code = 1,
+                        message = "success"
+                    }
+                };
+            }
+            catch (Exception e)
+            {
+                return new string_Result()
+                {
+                    success = 0,
+                    data = null,
+                    error = new WebService_Error_Result()
+                    {
+                        code = 0,
+                        message = e.ToString()
+                    }
+                };
+            }
+        }
+
+
+        [WebMethod]
         public string_Result Wiget_DeleteById(int id)
         {
             try

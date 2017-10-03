@@ -47,7 +47,7 @@ body {
 .wiget-control.wiget-md-edit {
   border: 1px dashed #0d7ce7;
   position: relative;
-  min-height: 50px;
+  min-height: 25px;
 }
 .wiget-control.wiget-md-edit:hover .wiget-content-actions {
   display: block;

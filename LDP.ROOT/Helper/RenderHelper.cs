@@ -25,22 +25,22 @@ namespace LDP.ROOT.Helper
             }
             //else
             //    classwiget += " wiget-md-view";
-            return HttpUtility.HtmlDecode("<div class='" + classwiget + "' data-id='" + wiget.Id.ToString() + "'>" + ctrEdit + "<div class='wiget-content-body'>" + wiget.Content + "</div></div>");
+            return HttpUtility.HtmlDecode("<div class='" + classwiget + "' data-id='" + wiget.Id.ToString() + "'>" + ctrEdit + "<div class='wiget-content-body'>" + wiget.Content + "</div></div>" + Environment.NewLine);
         }
 
         public static string RenderTitlePage(string title)
         {
-            return "<title>" + title + "</title>";
+            return "<title>" + title + "</title>" + Environment.NewLine;
         }
 
         public static string RenderRel(string type, string title)
         {
-            return "<link  rel=\"" + type + "\" href=\"" + title + "\" />";
+            return "<link  rel=\"" + type + "\" href=\"" + title + "\" />" + Environment.NewLine;
         }
 
         public static string RenderMetaPage( string type, string name, string title)
         {
-            return "<meta " + type + "= " + name + " content=\"" + title + "\" />";
+            return "<meta " + type + "= " + name + " content=\"" + title + "\" />" + Environment.NewLine;
         }
 
     }
