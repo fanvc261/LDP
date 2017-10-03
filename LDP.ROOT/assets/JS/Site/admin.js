@@ -14,6 +14,11 @@ $(document).ready(function () {
     $(document).on("click", ".wiget-md-edit .wiget-content-save-inline", function () {
         saveEdit(this);     
     });
+
+    $(document).on("click", ".wiget-md-edit .wiget-content-edit", function () {
+        var id = $(this).parent().parent().attr('data-id');
+        showAdminPopup('/LDPAdmin/Popup/pupWiget.aspx?id=' + id);
+    });
     
 })
 

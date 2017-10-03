@@ -28,6 +28,23 @@ namespace LDP.ROOT.Helper
             return HttpUtility.HtmlDecode("<div class='" + classwiget + "' data-id='" + wiget.Id.ToString() + "'>" + ctrEdit + "<div class='wiget-content-body'>" + wiget.Content + "</div></div>" + Environment.NewLine);
         }
 
+        public static string RenderInfoAdminEdit(int status)
+        {
+            string ctrEdit = "";
+            //if ((status & (int)PageStatus.Admin) > 0)
+            {
+                ctrEdit = "<div class='modal fade bgmodal' id='bg-modal-admin'></div>";
+                ctrEdit += "<div class='wiget-content-popup'>";
+                ctrEdit += "<iframe id='fr-admin-popup' src='/LDPAdmin/Popup/pupWiget.aspx?id=1'></iframe>";
+                ctrEdit += "</div>";
+                ctrEdit += "<div class='fixed-plugin admin-mode' id='setting-admin-mode'><div class='togglebutton'><label><span class='title-mode'>Mode</span><input id='chkAdminMode' checked='' type='checkbox'>";
+                ctrEdit += "</label></div></div>";
+            }
+            //else
+            //    classwiget += " wiget-md-view";
+            return HttpUtility.HtmlDecode(ctrEdit + Environment.NewLine);
+        }
+
         public static string RenderTitlePage(string title)
         {
             return "<title>" + title + "</title>" + Environment.NewLine;

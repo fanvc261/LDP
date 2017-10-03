@@ -122,8 +122,8 @@ function InitEditor(editorid) {
             "fontName",
             "fontSize",
             "foreColor",
-            "backColor",
-            "print"
+            "backColor"
+            //"print"
         ],
         imageBrowser: {
             messages: {
@@ -180,16 +180,28 @@ function InitEditor(editorid) {
 }
 
 
+/////////////////////////   Admin Popup ///////////////////////////////
+
+function showAdminPopup(url) {
+    $('#fr-admin-popup').attr('src',url)
+    $('#bg-modal-admin').show();
+    $('.wiget-content-popup').show();
+}
+
+function closeAdminPopup() {
+    $('#bg-modal-admin').hide();
+    $('.wiget-content-popup').hide();
+}
+
 /////////////////////////   HTML ///////////////////////////////
 
 function htmlEncode(value) {
-    return $('<div/>').text(value).html();
+    return $('<div/>').text(value).html().replace(/'/g, '&#39;').replace(/"/g, '&#34;');
 }
 
 function htmlDecode(value) {
     return $('<div/>').html(value).text();
 }
-
 
 function getUrlVars() {
     var vars = [], hash;

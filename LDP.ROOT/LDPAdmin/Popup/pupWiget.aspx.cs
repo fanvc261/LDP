@@ -11,9 +11,9 @@ using System.Web.UI.WebControls;
 
 namespace LDP.ROOT.LDPAdmin
 {
-    public partial class WigetPage : LDPAdminBase
+    public partial class pupWiget : LDPAdminBase
     {
-        int pageId = 0;
+        int wigetId = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!Page.IsPostBack)
@@ -30,19 +30,16 @@ namespace LDP.ROOT.LDPAdmin
 
         private void loadQueryString()
         {
-            pageId = string.IsNullOrEmpty(SiteUtils.QueryString("pageId")) ? 1 : Convert.ToInt32(SiteUtils.QueryString("pageId"));
+            wigetId = string.IsNullOrEmpty(SiteUtils.QueryString("id")) ? 1 : Convert.ToInt32(SiteUtils.QueryString("id"));
         }
 
         private void loadControls()
         {
-            rptWiget.DataSource = Wiget.GetAll();
-            rptWiget.DataBind();
-            Dictionary<string, string> lstContainer = new XMLModel().GetContainers();
-            ddlContainer.Items.Clear();
-            ddlContainer.Items.Add(new ListItem("", ""));
-            foreach (var item in lstContainer)
+            Wiget obj = new Wiget(wigetId);
+            if (obj.Id>0)
             {
-                ddlContainer.Items.Add(new ListItem(item.Value, item.Key));
+                ltrTitle.Text = obj.Name;
+                txtContent.InnerText = HttpUtility.HtmlDecode(obj.Content);
             }
         }
     }

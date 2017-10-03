@@ -9,103 +9,6 @@ body {
 }
 
 
-.togglebutton {
-    vertical-align: middle;
-
-    &, label, input, .toggle {
-        user-select: none;
-    }
-
-    label {
-        cursor: pointer;
-        color: rgba(0, 0, 0, 0.26);
-
-        .form-group.is-focused & {
-            color: rgba(0, 0, 0, 0.26);
-            // on focus just darken the specific labels, do not turn them to the brand-primary
-            &:hover,
-            &:focus {
-                color: rgba(0, 0, 0, 0.54);
-            }
-            // correct the above focus color for disabled items
-            fieldset[disabled] & {
-                color: rgba(0, 0, 0, 0.26);
-            }
-        }
-        // Hide original checkbox
-        input[type=checkbox] {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .toggle {
-            text-align: left; // Issue #737 horizontal form
-            margin-left: 5px;
-        }
-        // Switch bg off and disabled
-        .toggle,
-        input[type=checkbox][disabled] + .toggle {
-            content: "";
-            display: inline-block;
-            width: 30px;
-            height: 15px;
-            background-color: rgba(80, 80, 80, 0.7);
-            border-radius: 15px;
-            margin-right: 15px;
-            transition: background 0.3s ease;
-            vertical-align: middle;
-        }
-        // Handle off
-        .toggle:after {
-            content: "";
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            background-color: #FFFFFF;
-            border-radius: 20px;
-            position: relative;
-            box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4);
-            left: -5px;
-            top: -3px;
-            border: 1px solid rgba(0, 0, 0, 0.54);
-            transition: left 0.3s ease, background 0.3s ease, box-shadow 0.1s ease;
-        }
-
-        input[type=checkbox] {
-            // Handle disabled
-            &[disabled] {
-                & + .toggle:after,
-                &:checked + .toggle:after {
-                    background-color: #BDBDBD;
-                }
-            }
-
-            & + .toggle:active:after,
-            &[disabled] + .toggle:active:after {
-                box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 0, 0, 0.1);
-            }
-            // Ripple off and disabled
-            &:checked + .toggle:after {
-                left: 15px;
-            }
-        }
-        // set bg when checked
-        input[type=checkbox]:checked {
-            + .toggle {
-                background-color: rgba(156, 39, 176, 0.7); // Switch bg on
-            }
-
-            + .toggle:after {
-                border-color: #9c27b0; // Handle on
-            }
-
-            + .toggle:active:after {
-                box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(156, 39, 176, 0.7); // Ripple on
-            }
-        }
-    }
-}
 
 
 .label-floating,
@@ -148,7 +51,7 @@ body {
         transition: background 0s ease-out;
         float: none;
         box-shadow: none;
-        border-radius: 0;
+        .border-radius(0px);
         font-weight: 400;
         padding: 5px 0px;
     }
@@ -452,19 +355,59 @@ body {
 
         #embed-box {
             .nav-pills {
-                display:inline-block;
+                display: inline-block;
 
                 li {
                     a {
-                        padding:15px;
-                        width:100px;
+                        padding: 15px;
+                        width: 100px;
+
                         .material-icons {
-                            display:block;
-                            padding:10px;
+                            display: block;
+                            padding: 10px;
                         }
                     }
                 }
             }
         }
+    }
+}
+
+
+.main-popup-content {
+    transition-duration: 0.2s, 0.2s, 0.35s;
+    transition-property: top, bottom, width;
+    transition-timing-function: linear, linear, ease;
+    touch-action: auto;
+    overflow: hidden;
+
+    .pup-title {
+        background: brown none repeat scroll 0 0;
+        color: #fff;
+        font-size: 17px;
+        left: 0;
+        margin: 0;
+        padding: 15px 0;
+        position: absolute;
+        right: 0;
+    }
+
+    .pup-ctr {
+        background: #ccc none repeat scroll 0 0;
+        bottom: 0;
+        left: 0;
+        margin: 0;
+        padding: 10px 0;
+        position: absolute;
+        right: 0;
+    }
+
+    .pup-content {
+        bottom: 55px;
+        overflow: auto;
+        position: absolute;
+        top: 52px;
+        left:0px;
+        right:0px;
     }
 }

@@ -7,14 +7,14 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <asp:Literal ID="ltrMeta" runat="server" ></asp:Literal>
+    
+    <link rel="stylesheet" type="text/css" href="/assets/CSS/Plugins/bootstrap/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-
     <link rel="stylesheet" type="text/css" href="/assets/CSS/Plugins/kendo/kendo.common.min.css" />
     <link rel="stylesheet" href="/assets/CSS/Plugins/kendo/kendo.default.min.css" />
     <link rel="stylesheet" href="/assets/CSS/Plugins/kendo/kendo.common-material.min.css" />
     <link rel="stylesheet" href="/assets/CSS/Plugins/kendo//kendo.default.mobile.min.css" />
-
+    <link rel="stylesheet" type="text/css" href="/assets/CSS/Plugins/global.css" />
 
 
     <link rel="stylesheet" type="text/css" href="/assets/CSS/Site/site.css" />
@@ -32,6 +32,7 @@
         <asp:PlaceHolder ID="phContentRight" runat="server" ></asp:PlaceHolder> <%--ContainerGuid="a2336516-70b3-4891-889b-73ee828f6f91"--%>
         <asp:PlaceHolder ID="phContentBottom" runat="server" ></asp:PlaceHolder> <%--ContainerGuid="41d0db21-312f-4249-8b7d-20badf52f1b0"--%>
         <asp:PlaceHolder ID="phContentFooter" runat="server" ></asp:PlaceHolder> <%--ContainerGuid="72086953-fe1f-48fe-819a-866e5fb9473b"--%>
+        <asp:PlaceHolder ID="phContentAdmin" runat="server" ></asp:PlaceHolder>
     </form>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>

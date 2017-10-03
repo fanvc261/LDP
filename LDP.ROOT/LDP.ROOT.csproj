@@ -14,7 +14,7 @@
     <RootNamespace>LDP.ROOT</RootNamespace>
     <AssemblyName>LDP.ROOT</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <UseIISExpress>true</UseIISExpress>
+    <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
@@ -494,6 +494,7 @@
     <Content Include="assets\JS\Admin\Embed.js" />
     <Content Include="assets\JS\Admin\Main.js" />
     <Content Include="assets\JS\Admin\SEO.js" />
+    <Content Include="assets\JS\Admin\pupWiget.js" />
     <Content Include="assets\JS\Admin\Wiget.js" />
     <Content Include="assets\JS\Plugins\bk_handsontable.full.min.js" />
     <Content Include="assets\JS\Plugins\bootstrap-notify.js" />
@@ -1534,6 +1535,7 @@
     <Content Include="assets\JS\Site\admin.js" />
     <Content Include="data\editor\avatar.jpg" />
     <Content Include="data\xml\container.xml" />
+    <Content Include="LDPAdmin\Popup\pupWiget.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="FileService.asmx" />
     <Content Include="ImageService.asmx" />
@@ -1564,6 +1566,20 @@
     <Compile Include="AdminService.asmx.cs">
       <DependentUpon>AdminService.asmx</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="LDPAdmin\Popup\AdminPopup.Master.cs">
+      <DependentUpon>AdminPopup.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LDPAdmin\Popup\AdminPopup.Master.designer.cs">
+      <DependentUpon>AdminPopup.Master</DependentUpon>
+    </Compile>
+    <Compile Include="LDPAdmin\Popup\pupWiget.aspx.cs">
+      <DependentUpon>pupWiget.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LDPAdmin\Popup\pupWiget.aspx.designer.cs">
+      <DependentUpon>pupWiget.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -2811,6 +2827,7 @@
     </None>
     <Content Include="packages.config" />
     <Content Include="LDPAdmin\AdminSite.Master" />
+    <Content Include="LDPAdmin\Popup\AdminPopup.Master" />
     <None Include="Properties\PublishProfiles\DMS_Pulished.pubxml" />
     <None Include="Properties\PublishProfiles\Orion.pubxml" />
     <Content Include="Upload.ashx" />
@@ -2864,16 +2881,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>False</UseIIS>
-          <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>64235</DevelopmentServerPort>
-          <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:1742/</IISUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>

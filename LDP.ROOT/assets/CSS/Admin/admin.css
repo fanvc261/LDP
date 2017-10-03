@@ -9,84 +9,6 @@ body {
   font-weight: 300;
   line-height: 1.5em;
 }
-.togglebutton {
-  vertical-align: middle;
-}
-.togglebutton,
-.togglebutton label,
-.togglebutton input,
-.togglebutton .toggle {
-  user-select: none;
-}
-.togglebutton label {
-  cursor: pointer;
-  color: rgba(0, 0, 0, 0.26);
-}
-.form-group.is-focused .togglebutton label {
-  color: rgba(0, 0, 0, 0.26);
-}
-.form-group.is-focused .togglebutton label:hover,
-.form-group.is-focused .togglebutton label:focus {
-  color: rgba(0, 0, 0, 0.54);
-}
-fieldset[disabled] .form-group.is-focused .togglebutton label {
-  color: rgba(0, 0, 0, 0.26);
-}
-.togglebutton label input[type=checkbox] {
-  opacity: 0;
-  width: 0;
-  height: 0;
-}
-.togglebutton label .toggle {
-  text-align: left;
-  margin-left: 5px;
-}
-.togglebutton label .toggle,
-.togglebutton label input[type=checkbox][disabled] + .toggle {
-  content: "";
-  display: inline-block;
-  width: 30px;
-  height: 15px;
-  background-color: rgba(80, 80, 80, 0.7);
-  border-radius: 15px;
-  margin-right: 15px;
-  transition: background 0.3s ease;
-  vertical-align: middle;
-}
-.togglebutton label .toggle:after {
-  content: "";
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background-color: #FFFFFF;
-  border-radius: 20px;
-  position: relative;
-  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4);
-  left: -5px;
-  top: -3px;
-  border: 1px solid rgba(0, 0, 0, 0.54);
-  transition: left 0.3s ease, background 0.3s ease, box-shadow 0.1s ease;
-}
-.togglebutton label input[type=checkbox][disabled] + .toggle:after,
-.togglebutton label input[type=checkbox][disabled]:checked + .toggle:after {
-  background-color: #BDBDBD;
-}
-.togglebutton label input[type=checkbox] + .toggle:active:after,
-.togglebutton label input[type=checkbox][disabled] + .toggle:active:after {
-  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(0, 0, 0, 0.1);
-}
-.togglebutton label input[type=checkbox]:checked + .toggle:after {
-  left: 15px;
-}
-.togglebutton label input[type=checkbox]:checked + .toggle {
-  background-color: rgba(156, 39, 176, 0.7);
-}
-.togglebutton label input[type=checkbox]:checked + .toggle:after {
-  border-color: #9c27b0;
-}
-.togglebutton label input[type=checkbox]:checked + .toggle:active:after {
-  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4), 0 0 0 15px rgba(156, 39, 176, 0.7);
-}
 .label-floating label.control-label,
 .label-placeholder label.control-label {
   top: -7px;
@@ -119,7 +41,12 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   transition: background 0s ease-out;
   float: none;
   box-shadow: none;
-  border-radius: 0;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
   font-weight: 400;
   padding: 5px 0px;
 }
@@ -422,4 +349,38 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 .main-content .embed-content #embed-box .nav-pills li a .material-icons {
   display: block;
   padding: 10px;
+}
+.main-popup-content {
+  transition-duration: 0.2s, 0.2s, 0.35s;
+  transition-property: top, bottom, width;
+  transition-timing-function: linear, linear, ease;
+  touch-action: auto;
+  overflow: hidden;
+}
+.main-popup-content .pup-title {
+  background: brown none repeat scroll 0 0;
+  color: #fff;
+  font-size: 17px;
+  left: 0;
+  margin: 0;
+  padding: 15px 0;
+  position: absolute;
+  right: 0;
+}
+.main-popup-content .pup-ctr {
+  background: #ccc none repeat scroll 0 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  padding: 10px 0;
+  position: absolute;
+  right: 0;
+}
+.main-popup-content .pup-content {
+  bottom: 55px;
+  overflow: auto;
+  position: absolute;
+  top: 52px;
+  left: 0px;
+  right: 0px;
 }

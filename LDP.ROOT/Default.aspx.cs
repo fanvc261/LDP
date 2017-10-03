@@ -98,6 +98,10 @@ namespace LDP.ROOT
             Literal ltrFooter = new Literal();
             ltrFooter.Text = HttpUtility.HtmlDecode(new Setting("Embed.Footer").Content);
             phFooter.Controls.Add(ltrFooter);
+
+            Literal ltrAdminEdit = new Literal();
+            ltrFooter.Text = RenderHelper.RenderInfoAdminEdit(siteSetting.SiteStatus);
+            phContentAdmin.Controls.Add(ltrAdminEdit);
         }
     }
 }
