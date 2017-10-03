@@ -2886,6 +2886,9 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   padding: 12px 8px;
   border-right: none;
 }
+.handsontable td:last-child {
+  border-right: solid 1px #ccc;
+}
 .handsontable thead th {
   padding: 8px 8px 0px 8px;
   border-right: none;

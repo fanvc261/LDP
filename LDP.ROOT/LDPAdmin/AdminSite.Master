@@ -68,13 +68,13 @@
                             <div class="collapse" id="pagesWiget">
                                 <ul class="nav">
                                     <li class="">
-                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" data-key="mn_hp" href="/LDPAdmin/Wiget.aspx?pageid=1">
+                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" data-key="mn_wp1" href="/LDPAdmin/Wiget.aspx?pageid=1">
                                             <span class="sidebar-mini left mrr15">H</span>
                                             <span class="sidebar-normal">Hompage</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" data-key="mn_tk" href="/LDPAdmin/Wiget.aspx?pageid=2">
+                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" data-key="mn_wp2" href="/LDPAdmin/Wiget.aspx?pageid=2">
                                             <span class="sidebar-mini left mrr15">TK</span>
                                             <span class="sidebar-normal">Thank you</span>
                                         </a>
@@ -106,6 +106,12 @@
                                     </li> 
                                 </ul>
                             </div>
+                        </li>
+                        <li>
+                            <a class="mrt10 mrl15 mrr15 pdl10 pdr10" data-key="mn_ul" href="/LDPAdmin/UserList.aspx">
+                                <i class="material-icons">people</i>
+                                <p>Danh sách người dùng</p>
+                            </a>
                         </li>
                         <li>
                             <a class="mrt10 mrl15 mrr15 pdl10 pdr10" data-key="mn_rg" href="#">

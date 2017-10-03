@@ -15,7 +15,7 @@ namespace LDP.ROOT.Helper
         {
             string classwiget = "wiget-control " + wiget.ClassBody;
             string ctrEdit = "";
-            //if ((status & (int)PageStatus.Admin) > 0)
+            if ((status & (int)PageStatus.Admin) > 0)
             {
                 classwiget += " wiget-md-edit";
                 ctrEdit += "<div class='wiget-content-actions'>";
@@ -23,25 +23,28 @@ namespace LDP.ROOT.Helper
                 ctrEdit += "<i class='material-icons wiget-content-button wiget-content-edit'>edit</i>";
                 ctrEdit += "</div>";
             }
-            //else
-            //    classwiget += " wiget-md-view";
+            else
+                classwiget += " wiget-md-view";
             return HttpUtility.HtmlDecode("<div class='" + classwiget + "' data-id='" + wiget.Id.ToString() + "'>" + ctrEdit + "<div class='wiget-content-body'>" + wiget.Content + "</div></div>" + Environment.NewLine);
         }
 
-        public static string RenderInfoAdminEdit(int status)
+        public static string RenderInfoAdminEdit(int status, bool isAuth)
         {
             string ctrEdit = "";
-            //if ((status & (int)PageStatus.Admin) > 0)
+            string strChecked = "";
+            if ((status & (int)PageStatus.Admin) > 0)
             {
                 ctrEdit = "<div class='modal fade bgmodal' id='bg-modal-admin'></div>";
                 ctrEdit += "<div class='wiget-content-popup'>";
                 ctrEdit += "<iframe id='fr-admin-popup' src='/LDPAdmin/Popup/pupWiget.aspx?id=1'></iframe>";
                 ctrEdit += "</div>";
-                ctrEdit += "<div class='fixed-plugin admin-mode' id='setting-admin-mode'><div class='togglebutton'><label><span class='title-mode'>Mode</span><input id='chkAdminMode' checked='' type='checkbox'>";
+                strChecked = "checked='checked'";
+            }
+            if (isAuth)
+            {
+                ctrEdit += "<div class='fixed-plugin admin-mode' id='setting-admin-mode'><div class='togglebutton'><label><span class='title-mode'>Mode</span><input id='chkAdminMode' " + strChecked + " type ='checkbox'>";
                 ctrEdit += "</label></div></div>";
             }
-            //else
-            //    classwiget += " wiget-md-view";
             return HttpUtility.HtmlDecode(ctrEdit + Environment.NewLine);
         }
 

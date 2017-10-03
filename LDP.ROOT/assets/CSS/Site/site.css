@@ -101,7 +101,7 @@ body {
   border-radius: 0 0 5px 5px;
   padding: 10px 0;
   position: fixed;
-  right: -6px;
+  right: -15px;
   top: 200px;
   -webkit-transform: rotate(90deg);
   -moz-transform: rotate(90deg);
@@ -117,4 +117,9 @@ body {
   -ms-transform: rotate(-90deg);
   -o-transform: rotate(-90deg);
   transform: rotate(-90deg);
+  margin-left: 0;
+  margin-right: -15px;
+  margin-top: 5px;
+  color: #fff;
+  font-weight: 300;
 }

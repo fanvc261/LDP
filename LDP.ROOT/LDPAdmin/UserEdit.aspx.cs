@@ -12,9 +12,9 @@ using System.Web.UI.WebControls;
 
 namespace LDP.ROOT.LDPAdmin
 {
-    public partial class EmbedPage : LDPAdminBase
+    public partial class UserEdit : LDPAdminBase
     {
-        int pageId = 0;
+        int userId = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!Page.IsPostBack)
@@ -32,11 +32,12 @@ namespace LDP.ROOT.LDPAdmin
 
         private void loadQueryString()
         {
-            pageId = string.IsNullOrEmpty(SiteUtils.QueryString("pageId")) ? 1 : Convert.ToInt32(SiteUtils.QueryString("pageId"));
+            userId = string.IsNullOrEmpty(SiteUtils.QueryString("userId")) ? 1 : Convert.ToInt32(SiteUtils.QueryString("userId"));
         }
 
         private void loadControls()
         {
+           
         }
     }
 }

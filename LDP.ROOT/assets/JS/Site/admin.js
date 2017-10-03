@@ -19,6 +19,10 @@ $(document).ready(function () {
         var id = $(this).parent().parent().attr('data-id');
         showAdminPopup('/LDPAdmin/Popup/pupWiget.aspx?id=' + id);
     });
+
+    $(document).on("change", "#chkAdminMode", function () {
+        alert($(this).is(':checked'));
+    });
     
 })
 

@@ -12,9 +12,8 @@ using System.Web.UI.WebControls;
 
 namespace LDP.ROOT.LDPAdmin
 {
-    public partial class EmbedPage : LDPAdminBase
+    public partial class UserList : LDPAdminBase
     {
-        int pageId = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!Page.IsPostBack)
@@ -32,11 +31,12 @@ namespace LDP.ROOT.LDPAdmin
 
         private void loadQueryString()
         {
-            pageId = string.IsNullOrEmpty(SiteUtils.QueryString("pageId")) ? 1 : Convert.ToInt32(SiteUtils.QueryString("pageId"));
+            
         }
 
         private void loadControls()
         {
+           
         }
     }
 }

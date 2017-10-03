@@ -18,6 +18,7 @@ namespace LDP.ROOT.LDPAdmin
         {
             if(!Page.IsPostBack)
             {
+                loadString();
                 loadQueryString();
                 loadControls();
             }

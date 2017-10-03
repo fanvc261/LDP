@@ -51,6 +51,21 @@ namespace LDP.ROOT
             public WebService_Error_Result error { get; set; }
         }
 
+        public class UserList_Result
+        {
+            public int success { get; set; }
+            public List<User> data { get; set; }
+            public WebService_Error_Result error { get; set; }
+        }
+
+
+        public class User_Result
+        {
+            public int success { get; set; }
+            public User data { get; set; }
+            public WebService_Error_Result error { get; set; }
+        }
+
         public class Category_Result
         {
             public int success { get; set; }
@@ -601,6 +616,99 @@ namespace LDP.ROOT
                 };
             }
         }
+
+
+        /////////////////////////////////////////////////  User   /////////////////////////////////////
+
+        [WebMethod]
+        public UserList_Result User_GetList()
+        {
+            try
+            {
+                if (!CheckAuthorize())
+                {
+                    return new UserList_Result()
+                    {
+                        success = 0,
+                        data = null,
+                        error = new WebService_Error_Result()
+                        {
+                            code = 0,
+                            message = "No Login"
+                        }
+                    };
+                }
+                return new UserList_Result()
+                {
+                    success = 1,
+                    data = LDP.Business.User.GetAll(),
+                    error = new WebService_Error_Result()
+                    {
+                        code = 1,
+                        message = "success"
+                    }
+                };
+            }
+            catch (Exception e)
+            {
+                return new UserList_Result()
+                {
+                    success = 0,
+                    data = null,
+                    error = new WebService_Error_Result()
+                    {
+                        code = 0,
+                        message = e.ToString()
+                    }
+                };
+            }
+        }
+
+        [WebMethod]
+        public User_Result User_GetById(int id)
+        {
+            try
+            {
+                if (!CheckAuthorize())
+                {
+                    return new User_Result()
+                    {
+                        success = 0,
+                        data = null,
+                        error = new WebService_Error_Result()
+                        {
+                            code = 0,
+                            message = "No Login"
+                        }
+                    };
+                }
+                return new User_Result()
+                {
+                    success = 1,
+                    data = new User(id),
+                    error = new WebService_Error_Result()
+                    {
+                        code = 1,
+                        message = "success"
+                    }
+                };
+            }
+            catch (Exception e)
+            {
+                return new User_Result()
+                {
+                    success = 0,
+                    data = null,
+                    error = new WebService_Error_Result()
+                    {
+                        code = 0,
+                        message = e.ToString()
+                    }
+                };
+            }
+        }
+
+
         /////////////////////////////////////////////////  ***   /////////////////////////////////////
         private bool CheckAuthorize()
         {

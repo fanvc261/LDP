@@ -42,7 +42,7 @@
                                 <i class="fa fa-arrow-right"></i>
                             </span>
                             <span class='login-button-wrapper'>
-                                <asp:Button ID="btnLogin" runat="server" CssClass="login-buttonbtn btn-primary" Text="Đăng nhập" OnClick="Login_Click" />
+                                <asp:Button ID="btnLogin" runat="server" CssClass="login-buttonbtn btn-primary" Text="Đăng nhập" OnClick="btnLogin_Click" />
                             </span>
                         </div>
                     </div>

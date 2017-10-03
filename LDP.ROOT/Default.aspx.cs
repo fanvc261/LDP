@@ -100,7 +100,7 @@ namespace LDP.ROOT
             phFooter.Controls.Add(ltrFooter);
 
             Literal ltrAdminEdit = new Literal();
-            ltrFooter.Text = RenderHelper.RenderInfoAdminEdit(siteSetting.SiteStatus);
+            ltrFooter.Text = RenderHelper.RenderInfoAdminEdit(siteSetting.SiteStatus, siteSetting.IsAuthenticated);
             phContentAdmin.Controls.Add(ltrAdminEdit);
         }
     }

@@ -495,6 +495,7 @@
     <Content Include="assets\JS\Admin\Main.js" />
     <Content Include="assets\JS\Admin\SEO.js" />
     <Content Include="assets\JS\Admin\pupWiget.js" />
+    <Content Include="assets\JS\Admin\UserList.js" />
     <Content Include="assets\JS\Admin\Wiget.js" />
     <Content Include="assets\JS\Plugins\bk_handsontable.full.min.js" />
     <Content Include="assets\JS\Plugins\bootstrap-notify.js" />
@@ -1536,7 +1537,7 @@
     <Content Include="data\editor\avatar.jpg" />
     <Content Include="data\xml\container.xml" />
     <Content Include="LDPAdmin\Popup\pupWiget.aspx" />
-    <Content Include="Login.aspx" />
+    <Content Include="auth\Login.aspx" />
     <Content Include="FileService.asmx" />
     <Content Include="ImageService.asmx" />
     <Content Include="DataService.asmx" />
@@ -1545,6 +1546,8 @@
     <Content Include="Default.aspx" />
     <Content Include="LDPAdmin\Admin.html" />
     <Content Include="LDPAdmin\Embed.aspx" />
+    <Content Include="LDPAdmin\UserEdit.aspx" />
+    <Content Include="LDPAdmin\UserList.aspx" />
     <Content Include="LDPAdmin\SEO.aspx" />
     <Content Include="LDPAdmin\Wiget.aspx" />
     <Content Include="Web.config">
@@ -1581,11 +1584,11 @@
     <Compile Include="LDPAdmin\Popup\pupWiget.aspx.designer.cs">
       <DependentUpon>pupWiget.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Login.aspx.cs">
+    <Compile Include="auth\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Login.aspx.designer.cs">
+    <Compile Include="auth\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="LDPAdmin\AdminSite.Master.cs">
@@ -1601,6 +1604,20 @@
     </Compile>
     <Compile Include="LDPAdmin\Embed.aspx.designer.cs">
       <DependentUpon>Embed.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LDPAdmin\UserEdit.aspx.cs">
+      <DependentUpon>UserEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LDPAdmin\UserEdit.aspx.designer.cs">
+      <DependentUpon>UserEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LDPAdmin\UserList.aspx.cs">
+      <DependentUpon>UserList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LDPAdmin\UserList.aspx.designer.cs">
+      <DependentUpon>UserList.aspx</DependentUpon>
     </Compile>
     <Compile Include="LDPAdmin\SEO.aspx.cs">
       <DependentUpon>SEO.aspx</DependentUpon>
@@ -2856,7 +2873,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="LDPAdmin\App_LocalResources\Wiget.resx" />
+    <Content Include="LDPAdmin\App_LocalResources\Wiget.aspx.resx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_GlobalResources\Admin.resx">
@@ -2865,10 +2882,16 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="LDPAdmin\App_LocalResources\SEO.resx" />
+    <Content Include="LDPAdmin\App_LocalResources\SEO.aspx.resx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="LDPAdmin\App_LocalResources\Embed.resx" />
+    <Content Include="LDPAdmin\App_LocalResources\Embed.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LDPAdmin\App_LocalResources\UserList.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LDPAdmin\App_LocalResources\UserEdit.aspx.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

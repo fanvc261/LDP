@@ -270,17 +270,21 @@ img {max-width:100%}
 
 .handsontable {
     th .rowHeader {
-        position:relative;
-        top:12px;
-    }
-    td {
-        padding:12px 8px;
-        border-right:none;
+        position: relative;
+        top: 12px;
     }
 
-   thead th {
-        padding:8px 8px 0px 8px;
-        border-right:none;
+    td {
+        padding: 12px 8px;
+        border-right: none;
+        &:last-child {
+            border-right:solid 1px #ccc;
+        }
+    }
+
+    thead th {
+        padding: 8px 8px 0px 8px;
+        border-right: none;
     }
 }
 
