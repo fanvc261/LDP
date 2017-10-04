@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LDP.Business;
+using LDP.ROOT.Helper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,12 @@ namespace LDP.ROOT.LDPAdmin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(! Page.IsPostBack)
+            {
+                ltrCurUser.Text = SiteSettings.GetCurrentSiteSettings().CurrentUser.UserName;
+                rptPage.DataSource = Category.GetAll();
+                rptPage.DataBind();
+            }
         }
     }
 }

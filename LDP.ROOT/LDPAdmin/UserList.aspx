@@ -12,8 +12,8 @@
         <div class="box-body pd15">
             <h4 class="box-content-title pdb15 mrt0 mrb5">Quản lý người dùng 
                 <div class="pull-right">
-                    <button class="btn btn-danger panel-heading-btn-right" id="btnSave" type="button">Thêm mới</button>
-                    <button class="btn btn-danger panel-heading-btn-right" id="btnDelete" type="button">Xóa</button>
+                    <button class="btn btn-danger panel-heading-btn-right" id="btnAddNew" type="button">Thêm mới</button>
+                  <%--  <button class="btn btn-danger panel-heading-btn-right" id="btnDelete" type="button">Xóa</button>--%>
                 </div>
             </h4>
             <div id="userlist-box" class="mrt30">

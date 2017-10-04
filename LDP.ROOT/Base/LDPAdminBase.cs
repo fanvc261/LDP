@@ -48,7 +48,7 @@ namespace LDP.ROOT.Base
         
         private bool isAuthorized()
         {
-            //if (Context.User.Identity.IsAuthenticated)
+            if (siteSetting.IsAuthenticated)
                 return true;
             return false;
         }

@@ -31,7 +31,7 @@ namespace LDP.ROOT.Helper
         public static string RenderInfoAdminEdit(int status, bool isAuth)
         {
             string ctrEdit = "";
-            string strChecked = "";
+            string strChecked = " ";
             if ((status & (int)PageStatus.Admin) > 0)
             {
                 ctrEdit = "<div class='modal fade bgmodal' id='bg-modal-admin'></div>";
@@ -43,7 +43,7 @@ namespace LDP.ROOT.Helper
             if (isAuth)
             {
                 ctrEdit += "<div class='fixed-plugin admin-mode' id='setting-admin-mode'><div class='togglebutton'><label><span class='title-mode'>Mode</span><input id='chkAdminMode' " + strChecked + " type ='checkbox'>";
-                ctrEdit += "</label></div></div>";
+                ctrEdit += "</label></div><i class='material-icons icon-logout'>power_settings_new</i></div>";
             }
             return HttpUtility.HtmlDecode(ctrEdit + Environment.NewLine);
         }

@@ -1,8 +1,33 @@
-﻿var grdObject, dataObject, grdSettings, grdTable;
+﻿var grdObject, dataObject, grdSettings, grdTable, activeRender, blockRender;
 $(document).ready(function () {
     
     activeMenu('mn_ul');
     grdObject = document.querySelector('#grdUser');
+    activeRender = function (instance, td, row, col, prop, value, cellProperties) {
+        while (td.firstChild) {
+            td.removeChild(td.firstChild);
+        }
+        var strchecked = '';
+        if ((value & 1) > 0)
+            strchecked = 'checked= "checked"';
+        var cellElement = $('<div class="togglebutton"><label><input type="checkbox" class="cbActive" ' + strchecked + ' /><span class="toggle"></span></label></div>');
+        $(td).addClass(cellProperties.className);
+        $(td).append(cellElement);
+    };
+
+    blockRender = function (instance, td, row, col, prop, value, cellProperties) {
+        console.log(cellProperties);
+        while (td.firstChild) {
+            td.removeChild(td.firstChild);
+        }
+        var strchecked = '';
+        if ((value & 2) > 0)
+            strchecked = 'checked= "checked"';
+        var cellElement = $('<div class="togglebutton"><label><input type="checkbox" class="cbBlock" ' + strchecked + ' /><span class="toggle"></span></label></div>');
+        $(td).addClass(cellProperties.className);
+        $(td).append(cellElement);
+    };
+
     grdSettings = {
         data: [],
         columns: [
@@ -10,7 +35,8 @@ $(document).ready(function () {
                 data: 'Id',
                 type: 'numeric',
                 width: 40,
-                readOnly: true
+                readOnly: true,
+                className: "htCenter"
             },
             {
                 data: 'UserName',
@@ -29,21 +55,28 @@ $(document).ready(function () {
             },
             {
                 data: 'Status',
-                type: 'numeric',
-                readOnly: true
+                renderer: activeRender,
+                readOnly: true,
+                className: "htCenter"
+            },
+            {
+                data: 'Status',
+                renderer: blockRender,
+                readOnly: true,
+                className: "htCenter"
             }
         ],
         stretchH: 'all',
         autoWrapRow: true,
         height: 487,
-        maxRows: 22,
         rowHeaders: true,
         colHeaders: [
             'ID',
             'UserName',
             'FullName',
             'Email',
-            'Status'
+            'Active',
+            'Block'
         ],
         columnSorting: true,
         sortIndicator: true,
@@ -54,24 +87,29 @@ $(document).ready(function () {
         manualColumnResize: true,
         manualRowMove: true,
         manualColumnMove: true,
-        contextMenu: ['row_above', 'row_below', 'hsep1', 'col_left', 'col_right', 'hsep2', 'remove_row', 'remove_col', 'hsep3', 'undo', 'redo', 'make_read_only', 'alignment', 'borders', 'commentsAddEdit','commentsRemove'],
+        contextMenu: false, // ['row_above', 'row_below', 'hsep1', 'col_left', 'col_right', 'hsep2', 'remove_row', 'remove_col', 'hsep3', 'undo', 'redo', 'make_read_only', 'alignment', 'borders', 'commentsAddEdit','commentsRemove'],
         filters: true,
-        dropdownMenu: true
+        dropdownMenu: true,
+        afterSelection: function (a, b, c, d) {
+            //console.log('a: ' + a + ', b:' + b + ', c:' + c + ', d:' + d);
+            if (b == 0 && d == 5)
+            {
+                var userId = grdTable.getDataAtCell(a, 0);
+                location.href = "/LDPAdmin/UserEdit.aspx?userid=" + userId;
+            }
+        }
     };
 
     loadList();
 
-    $(document).on("click", ".nav-wiget li a", function () {
-        curId = $(this).attr('data_id');
-        $('.nav-wiget .active').removeClass('active');
-        $(this).parent().addClass('active');
-        loadWiget(curId);
+    //$(document).on("click", "#grdUser tr td:nth-child(1)", function () {
+    //    var userId = $(this).parent().find('td:nth-child(0)').html();
+    //    location.href = "/LDPAdmin/UserEdit.aspx?userid=" + userId;
 
-    });
+    //});
 
     $(document).on("click", "#btnAddNew", function () {
-        curId = 0;
-        resetForm();
+        location.href = "/LDPAdmin/UserEdit.aspx";
     });
 
     $(document).on("click", "#btnSave", function () {

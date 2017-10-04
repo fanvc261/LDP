@@ -33,18 +33,15 @@ namespace LDP.ROOT
             {
                 if ((user.Status & (int)UserStatus.Encryption) > 0)
                 {
-                    password = CryptoHelper.Encrypt(Password.Value);
+                    password = CryptoHelper.CalculateMD5Hash(Password.Value);
                     if (user.Password== password)
                     {
                         FormsAuthentication.SetAuthCookie(user.Id.ToString(), true);
-                        Response.Redirect("default.aspx");
+                        Response.Redirect("/");
                     }
                 }           
             }
-            else
-            {
-                ltrError.Text = "Login error";
-            }
+            ltrError.Text = "Login error";
 
             // 1 == 1;
         }

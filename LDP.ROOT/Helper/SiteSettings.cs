@@ -24,8 +24,8 @@ namespace LDP.ROOT.Helper
             User user = new User();
             if (HttpContext.Current.User.Identity.IsAuthenticated)
             {
-                user = new User(HttpContext.Current.User.Identity.Name);
-                result.SiteStatus = user.Option;// &(int)PageStatus.Admin;
+                user = new User(Convert.ToInt32(HttpContext.Current.User.Identity.Name));
+                result.SiteStatus = user.Option>0 ? user.Option: 0;// &(int)PageStatus.Admin;
             }
             result.CurrentUser = user;
             return result;

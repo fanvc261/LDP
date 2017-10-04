@@ -21,9 +21,12 @@ $(document).ready(function () {
     });
 
     $(document).on("change", "#chkAdminMode", function () {
-        alert($(this).is(':checked'));
+        updateMode($(this).is(':checked')?1:0);
     });
     
+    $(document).on("click", ".icon-logout", function () {
+        logout();
+    });
 })
 
 var loadWiget = function (id) {
@@ -39,11 +42,26 @@ var saveWiget = function (id, content) {
     callMethod_1("Wiget_UpdateContent", p, saveWigetCallback);
 }
 
+var updateMode = function (mode) {
+    let p = new methodParams();
+    p.addParam("mode", mode);
+    callMethod_1("User_UpdateMode", p, updateModeCallback);
+}
+
+var logout = function (mode) {
+    let p = new methodParams();
+    callMethod_1("User_Logout", p, updateModeCallback);
+}
+
 function loadWigetCallback(result) {
     $('.wiget-control[data-id="' + result.data.Id + '"] > .wiget-content-body').html(htmlDecode(result.data.Content));
 }
 
 function saveWigetCallback(result) {
+}
+
+function updateModeCallback(result) {
+    window.location.reload(false);
 }
 
 function cancelEdit(ctr) {

@@ -44,14 +44,13 @@
                             <img src="/data/img/avatar.jpg" />
                         </div>
                         <div class="info mrt5">
-                            <a href="#collapseExample" class="collapsed">
-                                <span>Administrator
-                                </span>
-                            </a>
+                            <span>
+                                <asp:Literal ID="ltrCurUser" runat="server"></asp:Literal>
+                            </span>
                         </div>
                     </div>
                     <ul class="nav">
-                       <%-- <li class="active">
+                        <%-- <li class="active">
                             <a class="mrt10 mrl15 mrr15 pdl10 pdr10" href="./dashboard.html">
                                 <i class="material-icons">dashboard</i>
                                 <p>Dashboard</p>
@@ -59,7 +58,7 @@
                         </li>--%>
                         <li class="">
                             <a class="mrt10 mrl15 mrr15 pdl10 pdr10" data-toggle="collapse" data-key="#" aria-expanded="true" href="#">
-                                <i class="material-icons">image</i>
+                                <i class="material-icons">view_module</i>
                                 <p>
                                     Quản lý nội dung
                                 <b class="caret mrt15"></b>
@@ -67,24 +66,22 @@
                             </a>
                             <div class="collapse" id="pagesWiget">
                                 <ul class="nav">
-                                    <li class="">
-                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" data-key="mn_wp1" href="/LDPAdmin/Wiget.aspx?pageid=1">
-                                            <span class="sidebar-mini left mrr15">H</span>
-                                            <span class="sidebar-normal">Hompage</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="mrt10 mrl15 mrr15 pdl10 pdr10" data-key="mn_wp2" href="/LDPAdmin/Wiget.aspx?pageid=2">
-                                            <span class="sidebar-mini left mrr15">TK</span>
-                                            <span class="sidebar-normal">Thank you</span>
-                                        </a>
-                                    </li>
+                                    <asp:Repeater ID="rptPage" runat="server">
+                                        <ItemTemplate>
+                                            <li class="">
+                                                <a class="mrt10 mrl15 mrr15 pdl10 pdr10" data-key='<%# "mn_wp" + Eval("Id") %>' href='<%# "/LDPAdmin/Wiget.aspx?pageid=" + Eval("Id") %>'>
+                                                    <span class="sidebar-mini left mrr15"><%# Eval("KeyMenu") %></span>
+                                                    <span class="sidebar-normal"><%# Eval("Name") %></span>
+                                                </a>
+                                            </li>
+                                        </ItemTemplate>
+                                    </asp:Repeater>
                                 </ul>
                             </div>
                         </li>
                         <li>
                             <a class="mrt10 mrl15 mrr15 pdl10 pdr10" data-toggle="collapse" href="#">
-                                <i class="material-icons">apps</i>
+                                <i class="material-icons">settings</i>
                                 <p>
                                     Cấu hình
                                 <b class="caret mrt15"></b>
@@ -103,7 +100,7 @@
                                             <span class="sidebar-mini left mrr15">E</span>
                                             <span class="sidebar-normal">Embed</span>
                                         </a>
-                                    </li> 
+                                    </li>
                                 </ul>
                             </div>
                         </li>
@@ -115,7 +112,7 @@
                         </li>
                         <li>
                             <a class="mrt10 mrl15 mrr15 pdl10 pdr10" data-key="mn_rg" href="#">
-                                <i class="material-icons">widgets</i>
+                                <i class="material-icons">list</i>
                                 <p>Danh sách đăng ký</p>
                             </a>
                         </li>

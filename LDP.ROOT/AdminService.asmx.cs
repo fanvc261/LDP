@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using LDP.ROOT.Helper;
 using LDP.Business;
+using System.Web.Security;
 
 namespace LDP.ROOT
 {
@@ -708,6 +709,82 @@ namespace LDP.ROOT
             }
         }
 
+        [WebMethod]
+        public string_Result User_UpdateMode(int mode)
+        {
+            try
+            {
+                if (!CheckAuthorize())
+                {
+                    return new string_Result()
+                    {
+                        success = 0,
+                        data = null,
+                        error = new WebService_Error_Result()
+                        {
+                            code = 0,
+                            message = "No Login"
+                        }
+                    };
+                }
+                siteSetting.CurrentUser.Option = mode;
+                return new string_Result()
+                {
+                    success = 1,
+                    data = siteSetting.CurrentUser.Save().ToString(),
+                    error = new WebService_Error_Result()
+                    {
+                        code = 1,
+                        message = "success"
+                    }
+                };
+            }
+            catch (Exception e)
+            {
+                return new string_Result()
+                {
+                    success = 0,
+                    data = null,
+                    error = new WebService_Error_Result()
+                    {
+                        code = 0,
+                        message = e.ToString()
+                    }
+                };
+            }
+        }
+
+        [WebMethod]
+        public string_Result User_Logout()
+        {
+            try
+            {
+                FormsAuthentication.SignOut();
+                return new string_Result()
+                {
+                    success = 1,
+                    data = true.ToString(),
+                    error = new WebService_Error_Result()
+                    {
+                        code = 1,
+                        message = "success"
+                    }
+                };
+            }
+            catch (Exception e)
+            {
+                return new string_Result()
+                {
+                    success = 0,
+                    data = null,
+                    error = new WebService_Error_Result()
+                    {
+                        code = 0,
+                        message = e.ToString()
+                    }
+                };
+            }
+        }
 
         /////////////////////////////////////////////////  ***   /////////////////////////////////////
         private bool CheckAuthorize()

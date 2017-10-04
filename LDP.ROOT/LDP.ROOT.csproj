@@ -503,10 +503,12 @@
     <Content Include="assets\JS\Plugins\bootstrap.js" />
     <Content Include="assets\JS\Plugins\bootstrap.min.js" />
     <Content Include="assets\JS\Plugins\default.js" />
+    <Content Include="assets\JS\Plugins\handsontable.full.min - Copy.js" />
     <Content Include="assets\JS\Plugins\handsontable.full.min.js" />
     <Content Include="assets\JS\Plugins\html5shiv.js" />
     <Content Include="assets\JS\Plugins\jquery.bootstrap.min.js" />
     <Content Include="assets\JS\Plugins\jquery.select-bootstrap.js" />
+    <Content Include="assets\JS\Plugins\jquery.validate.min.js" />
     <Content Include="assets\JS\Plugins\kendo\angular.min.js" />
     <Content Include="assets\JS\Plugins\kendo\cultures\kendo.culture.aa-DJ.min.js" />
     <Content Include="assets\JS\Plugins\kendo\cultures\kendo.culture.aa-ER.min.js" />

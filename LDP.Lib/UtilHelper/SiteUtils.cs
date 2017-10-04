@@ -65,7 +65,7 @@ namespace LDP.Lib.Common
 
         public static string GetLoginParth()
         {
-            return GetApplicationParth() + "/login.aspx";
+            return GetApplicationParth() + "/auth/login.aspx";
         }
 
         public static string GetHomeParth()

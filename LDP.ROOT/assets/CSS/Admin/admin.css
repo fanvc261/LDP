@@ -61,6 +61,7 @@ body {
 }
 .form-group.label-floating label.control-label {
   will-change: left, top, contents;
+    left: 0px;
 }
 .form-group.label-placeholder:not(.is-empty) label.control-label {
   display: none;

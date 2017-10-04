@@ -98,28 +98,29 @@ body {
 }
 .fixed-plugin {
   background: rgba(0, 0, 0, 0.4) none repeat scroll 0 0;
-  border-radius: 0 0 5px 5px;
-  padding: 10px 0;
+  border-radius: 5px 0px 0 5px;
   position: fixed;
-  right: -15px;
+  right: 0px;
   top: 200px;
-  -webkit-transform: rotate(90deg);
-  -moz-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-  transform: rotate(90deg);
+  height: 110px;
+  width: 55px;
 }
-.fixed-plugin .title-mode {
-  display: block;
-  float: left;
-  -webkit-transform: rotate(-90deg);
-  -moz-transform: rotate(-90deg);
-  -ms-transform: rotate(-90deg);
-  -o-transform: rotate(-90deg);
+.fixed-plugin .togglebutton .toggle {
+  position: absolute;
+  top: 40px;
+  left: 8px;
   transform: rotate(-90deg);
-  margin-left: 0;
-  margin-right: -15px;
-  margin-top: 5px;
+}
+.fixed-plugin .togglebutton .title-mode {
+  display: block;
+  padding-left: 10px;
   color: #fff;
   font-weight: 300;
+}
+.fixed-plugin .icon-logout {
+  position: absolute;
+  right: 14px;
+  bottom: 5px;
+  cursor: pointer;
+  color: #e91e63;
 }
