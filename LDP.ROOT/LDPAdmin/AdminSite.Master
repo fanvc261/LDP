@@ -57,7 +57,7 @@
                             </a>
                         </li>--%>
                         <li class="">
-                            <a class="mrt10 mrl15 mrr15 pdl10 pdr10" data-toggle="collapse" data-key="#" aria-expanded="true" href="#">
+                            <a class="mrt10 mrl15 mrr15 pdl10 pdr10" data-toggle="collapse" data-key="#" href="#">
                                 <i class="material-icons">view_module</i>
                                 <p>
                                     Quản lý nội dung

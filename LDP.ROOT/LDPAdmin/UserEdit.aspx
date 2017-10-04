@@ -12,9 +12,9 @@
         <div class="box-body pd15">
             <h4 class="box-content-title pdb15 mrt0 mrb5">Thông tin người dùng
                 <div class="pull-right">
-                    <asp:Button ID="btnSave" runat="server" CssClass="btn btn-danger panel-heading-btn-right" Text="Cập nhật" OnClick="btnSave_Click" />
-                    <asp:Button ID="btnDel" runat="server" CssClass="btn btn-danger panel-heading-btn-right" Text="Xóa" OnClick="btnDel_Click" />
-                    <input id="btnCancel" class="btn btn-danger panel-heading-btn-right" onclick="javascript: location.href = '/LDPAdmin/UserList.aspx';"   value="Hủy" type="button" />
+                    <asp:Button ID="btnSave" runat="server" CssClass="btn btn-danger " Text="Cập nhật" OnClick="btnSave_Click" />
+                    <asp:Button ID="btnDel" runat="server" CssClass="btn btn-danger " Text="Xóa" OnClick="btnDel_Click" />
+                    <input id="btnCancel" class="btn btn-danger" onclick="javascript: location.href = '/LDPAdmin/UserList.aspx';"   value="Hủy" type="button" />
                 </div>
             </h4>
             <div id="seo-box" class="mrt30">

@@ -12,7 +12,7 @@
         <div class="box-body pd15">
             <h4 class="box-content-title pdb15 mrt0 mrb5">Quản lý Embed 
                 <div class="pull-right">
-                    <button class="btn btn-danger panel-heading-btn-right" id="btnSave" type="button">Cập nhật</button>
+                    <button class="btn btn-danger " id="btnSave" type="button">Cập nhật</button>
                 </div>
             </h4>
             <div id="embed-box" class="mrt30">

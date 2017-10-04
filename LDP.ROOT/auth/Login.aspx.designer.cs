@@ -22,15 +22,6 @@ namespace LDP.ROOT {
         protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
         
         /// <summary>
-        /// ltrMeta control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal ltrMeta;
-        
-        /// <summary>
         /// phHeader control.
         /// </summary>
         /// <remarks>
@@ -64,7 +55,7 @@ namespace LDP.ROOT {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText UserName;
+        protected global::System.Web.UI.WebControls.TextBox UserName;
         
         /// <summary>
         /// Password control.
@@ -73,7 +64,7 @@ namespace LDP.ROOT {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword Password;
+        protected global::System.Web.UI.WebControls.TextBox Password;
         
         /// <summary>
         /// btnLogin control.
@@ -92,14 +83,5 @@ namespace LDP.ROOT {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Literal ltrError;
-        
-        /// <summary>
-        /// phFooter control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder phFooter;
     }
 }

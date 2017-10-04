@@ -20,5 +20,9 @@
   {
     "outputFile": "assets/CSS/Site/site.css",
     "inputFile": "assets/Less/site.less"
+  },
+  {
+    "outputFile": "assets/CSS/Site/login.css",
+    "inputFile": "assets/Less/login.less"
   }
 ]

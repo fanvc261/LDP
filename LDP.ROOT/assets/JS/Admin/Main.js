@@ -28,8 +28,9 @@ function activeMenu(key) {
     activetab.parent().addClass('active');
     if (activetab.parents('.collapse').length >0)
     {
-        activetab.parents('.collapse').attr('aria-expanded', true);
         activetab.parents('.collapse').addClass('in');
         activetab.parents('.collapse').parent().addClass('active');
+        activetab.parents('.collapse').parent().find('> a').attr('aria-expanded', 'true');
+
     }
 }

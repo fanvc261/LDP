@@ -292,3 +292,101 @@ a {
     color: @color-admin-link;
 }
 
+input:required:invalid {
+    outline: none;
+}
+
+.label-floating,
+.label-placeholder {
+    label.control-label {
+        top: -7px;
+        left: 0;
+        font-size: 14px;
+        line-height: 1.42857;
+    }
+}
+
+.label-static,
+.label-floating.is-focused,
+.label-floating:focus,
+.label-floating:not(.is-empty) {
+    label.control-label {
+        top: -28px;
+        
+        // must repeat because the selector above is more specific than the general label sizing
+        font-size: 11px;
+        line-height: 1.07143;
+    }
+}
+
+.form-group {
+    label {
+        font-weight: normal;
+    }
+
+    position: relative;
+    margin-bottom: 25px;
+
+    .form-control {
+        border: 0;
+        background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#D2D2D2, #D2D2D2);
+        background-size: 0 2px, 100% 1px;
+        background-repeat: no-repeat;
+        background-position: ~"center bottom, center calc(100% - 1px)";
+        background-color: rgba(0, 0, 0, 0);
+        transition: background 0s ease-out;
+        float: none;
+        box-shadow: none;
+        .border-radius(0px);
+        font-weight: 400;
+        padding: 5px 0px;
+    }
+
+    &.label-static,
+    &.label-placeholder,
+    &.label-floating {
+        label.control-label {
+            position: absolute;
+            pointer-events: none;
+            transition: 0.3s ease all;
+            margin-top: 15px;
+            font-weight: 400;
+        }
+    }
+    // hint to browser for optimization
+    //    TODO: evaluate effectiveness - looking for community feedback
+    &.label-floating label.control-label {
+        will-change: left, top, contents;
+    }
+    // hide label-placeholders when the field is not empty
+    &.label-placeholder:not(.is-empty) {
+        label.control-label {
+            display: none;
+        }
+    }
+
+    &.is-focused, &:focus {
+        .form-control {
+            outline: none;
+            background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#D2D2D2, #D2D2D2);
+            background-size: 100% 2px, 100% 1px;
+            box-shadow: none;
+            transition-duration: 0.3s;
+
+            .material-input:after {
+                background-color: #9c27b0;
+            }
+        }
+        //.variations(unquote(".is-focused.label-placeholder label.control-label"), color, $mdb-input-placeholder-color);  // default label color variations
+        &.label-placeholder {
+            label,
+            label.control-label {
+                color: #AAAAAA;
+            }
+        }
+
+        .help-block {
+            display: block;
+        }
+    }
+}

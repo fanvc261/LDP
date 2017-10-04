@@ -2896,3 +2896,84 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
 a {
   color: #000000;
 }
+input:required:invalid {
+  outline: none;
+}
+.label-floating label.control-label,
+.label-placeholder label.control-label {
+  top: -7px;
+  left: 0;
+  font-size: 14px;
+  line-height: 1.42857;
+}
+.label-static label.control-label,
+.label-floating.is-focused label.control-label,
+.label-floating:focus label.control-label,
+.label-floating:not(.is-empty) label.control-label {
+  top: -28px;
+  font-size: 11px;
+  line-height: 1.07143;
+}
+.form-group {
+  position: relative;
+  margin-bottom: 25px;
+}
+.form-group label {
+  font-weight: normal;
+}
+.form-group .form-control {
+  border: 0;
+  background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#D2D2D2, #D2D2D2);
+  background-size: 0 2px, 100% 1px;
+  background-repeat: no-repeat;
+  background-position: center bottom, center calc(100% - 1px);
+  background-color: rgba(0, 0, 0, 0);
+  transition: background 0s ease-out;
+  float: none;
+  box-shadow: none;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  font-weight: 400;
+  padding: 5px 0px;
+}
+.form-group.label-static label.control-label,
+.form-group.label-placeholder label.control-label,
+.form-group.label-floating label.control-label {
+  position: absolute;
+  pointer-events: none;
+  transition: 0.3s ease all;
+  margin-top: 15px;
+  font-weight: 400;
+}
+.form-group.label-floating label.control-label {
+  will-change: left, top, contents;
+}
+.form-group.label-placeholder:not(.is-empty) label.control-label {
+  display: none;
+}
+.form-group.is-focused .form-control,
+.form-group:focus .form-control {
+  outline: none;
+  background-image: linear-gradient(#9c27b0, #9c27b0), linear-gradient(#D2D2D2, #D2D2D2);
+  background-size: 100% 2px, 100% 1px;
+  box-shadow: none;
+  transition-duration: 0.3s;
+}
+.form-group.is-focused .form-control .material-input:after,
+.form-group:focus .form-control .material-input:after {
+  background-color: #9c27b0;
+}
+.form-group.is-focused.label-placeholder label,
+.form-group:focus.label-placeholder label,
+.form-group.is-focused.label-placeholder label.control-label,
+.form-group:focus.label-placeholder label.control-label {
+  color: #AAAAAA;
+}
+.form-group.is-focused .help-block,
+.form-group:focus .help-block {
+  display: block;
+}

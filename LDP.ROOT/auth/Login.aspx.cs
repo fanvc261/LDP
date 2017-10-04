@@ -25,23 +25,24 @@ namespace LDP.ROOT
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            string userName = UserName.Value.Trim();
-            string password = Password.Value;
-            
+            string userName = UserName.Text.Trim();
+            string password = Password.Text;
+
             User user = new User(userName);
-            if ((user.Status & (int)UserStatus.Active) >0 && (user.Status & ((int)UserStatus.Block  + (int)UserStatus.Delete)) <= 0)
+            if ((user.Status & (int)UserStatus.Active) > 0 && (user.Status & ((int)UserStatus.Block + (int)UserStatus.Delete)) <= 0)
             {
                 if ((user.Status & (int)UserStatus.Encryption) > 0)
                 {
-                    password = CryptoHelper.CalculateMD5Hash(Password.Value);
-                    if (user.Password== password)
-                    {
-                        FormsAuthentication.SetAuthCookie(user.Id.ToString(), true);
-                        Response.Redirect("/");
-                    }
-                }           
+                    password = CryptoHelper.CalculateMD5Hash(Password.Text);
+                }
+                if (user.Password == password)
+                {
+                    FormsAuthentication.SetAuthCookie(user.Id.ToString(), true);
+                    Response.Redirect("/");
+                }
+
             }
-            ltrError.Text = "Login error";
+            ltrError.Text = "Tài khoản không chính xác. Vui lòng kiểm tra lại.";
 
             // 1 == 1;
         }

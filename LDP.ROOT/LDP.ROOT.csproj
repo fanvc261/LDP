@@ -487,6 +487,11 @@
     <Content Include="assets\CSS\Plugins\kendo\Uniform\sprite_2x.png" />
     <Content Include="assets\CSS\Plugins\kendo\Uniform\sprite_kpi.png" />
     <Content Include="assets\CSS\Plugins\kendo\Uniform\sprite_kpi_2x.png" />
+    <Content Include="assets\CSS\Site\img\bglogin.jpg" />
+    <Content Include="assets\CSS\Site\login.css" />
+    <Content Include="assets\CSS\Site\login.min.css">
+      <DependentUpon>login.css</DependentUpon>
+    </Content>
     <Content Include="assets\CSS\Site\site.css" />
     <Content Include="assets\CSS\Site\site.min.css">
       <DependentUpon>site.css</DependentUpon>
@@ -1537,6 +1542,7 @@
     <Content Include="assets\JS\Plugins\material.min.js" />
     <Content Include="assets\JS\Site\admin.js" />
     <Content Include="data\editor\avatar.jpg" />
+    <Content Include="data\img\logo-login.jpg" />
     <Content Include="data\xml\container.xml" />
     <Content Include="LDPAdmin\Popup\pupWiget.aspx" />
     <Content Include="auth\Login.aspx" />
@@ -2840,6 +2846,7 @@
     <Content Include="assets\CSS\Plugins\kendo\kendo.uniform.min.css.map" />
     <Content Include="assets\CSS\Plugins\kendo\kendo.uniform.mobile.min.css.map" />
     <Content Include="assets\Less\site.less" />
+    <Content Include="assets\Less\login.less" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>

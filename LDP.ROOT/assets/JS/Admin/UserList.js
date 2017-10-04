@@ -1,4 +1,4 @@
-﻿var grdObject, dataObject, grdSettings, grdTable, activeRender, blockRender;
+﻿var grdObject, dataObject, grdSettings, grdTable, activeRender, blockRender,hgrd=400;
 $(document).ready(function () {
     
     activeMenu('mn_ul');
@@ -27,7 +27,9 @@ $(document).ready(function () {
         $(td).addClass(cellProperties.className);
         $(td).append(cellElement);
     };
-
+    hgrd = window.innerHeight - $(grdObject).offset().top - 35;
+    if (hgrd < 400)
+        hgrd = 400;
     grdSettings = {
         data: [],
         columns: [
@@ -68,7 +70,7 @@ $(document).ready(function () {
         ],
         stretchH: 'all',
         autoWrapRow: true,
-        height: 487,
+        height: hgrd,
         rowHeaders: true,
         colHeaders: [
             'ID',
@@ -126,12 +128,16 @@ $(document).ready(function () {
         saveWiget(id, name, pageId, rank, status, option, classBody, containerGuid, content);
     });
 
-    $(document).on("click", "#btnDelete", function () {
-        if (confirm("Bạn có chắt muốn xóa dữ liệu ?")) {
-            let id = curId;
-            $("#btnDelete").prop('disabled', true);
-            deleteWiget(id);
-        }
+    $(document).on("click", "#btnExport", function () {
+        var exportPlugin = grdTable.getPlugin('exportFile');
+        exportPlugin.downloadFile('csv', {
+            exportHiddenRows: true,     // default false, exports the hidden rows
+            exportHiddenColumns: true,  // default false, exports the hidden columns
+            columnHeaders: true,        // default false, exports the column headers
+            rowHeaders: false,           // default false, exports the row headers
+            columnDelimiter: ',',       // default ',', the data delimiter
+            filename: 'MyFile'
+        });
     });
 })
 
