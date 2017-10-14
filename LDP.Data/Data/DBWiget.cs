@@ -223,6 +223,18 @@ namespace LDP.Data
 
         }
 
+        public static IDataReader GetByPage(
+            int pageId,
+            int status)
+        {
+
+            SqlParameterHelper sph = new SqlParameterHelper(ConnectionString.GetReadConnectionString(), "Wiget_SelectByPage", 2);
+            sph.DefineSqlParameter("@PageId", SqlDbType.Int, ParameterDirection.Input, pageId);
+            sph.DefineSqlParameter("@Status", SqlDbType.Int, ParameterDirection.Input, status);
+            return sph.ExecuteReader();
+
+        }
+
     }
 
 }

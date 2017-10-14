@@ -67,6 +67,13 @@ namespace LDP.ROOT
             public WebService_Error_Result error { get; set; }
         }
 
+        public class RegInfoList_Result
+        {
+            public int success { get; set; }
+            public List<RegInfo> data { get; set; }
+            public WebService_Error_Result error { get; set; }
+        }
+
         public class Category_Result
         {
             public int success { get; set; }
@@ -105,6 +112,50 @@ namespace LDP.ROOT
                 {
                     success = 1,
                     data = Wiget.GetAll(),
+                    error = new WebService_Error_Result()
+                    {
+                        code = 1,
+                        message = "success"
+                    }
+                };
+            }
+            catch (Exception e)
+            {
+                return new WigetList_Result()
+                {
+                    success = 0,
+                    data = null,
+                    error = new WebService_Error_Result()
+                    {
+                        code = 0,
+                        message = e.ToString()
+                    }
+                };
+            }
+        }
+
+        [WebMethod]
+        public WigetList_Result Wiget_GetListByPage(int pageId)
+        {
+            try
+            {
+                if (!CheckAuthorize())
+                {
+                    return new WigetList_Result()
+                    {
+                        success = 0,
+                        data = null,
+                        error = new WebService_Error_Result()
+                        {
+                            code = 0,
+                            message = "No Login"
+                        }
+                    };
+                }
+                return new WigetList_Result()
+                {
+                    success = 1,
+                    data = Wiget.GetByPage(pageId,-1),
                     error = new WebService_Error_Result()
                     {
                         code = 1,
@@ -786,10 +837,103 @@ namespace LDP.ROOT
             }
         }
 
+
+        /////////////////////////////////////////////////  Registry Infomation   /////////////////////////////////////
+
+        [WebMethod]
+        public RegInfoList_Result RegInfo_GetList()
+        {
+            try
+            {
+                if (!CheckAuthorize())
+                {
+                    return new RegInfoList_Result()
+                    {
+                        success = 0,
+                        data = null,
+                        error = new WebService_Error_Result()
+                        {
+                            code = 0,
+                            message = "No Login"
+                        }
+                    };
+                }
+                return new RegInfoList_Result()
+                {
+                    success = 1,
+                    data = RegInfo.GetAll(),
+                    error = new WebService_Error_Result()
+                    {
+                        code = 1,
+                        message = "success"
+                    }
+                };
+            }
+            catch (Exception e)
+            {
+                return new RegInfoList_Result()
+                {
+                    success = 0,
+                    data = null,
+                    error = new WebService_Error_Result()
+                    {
+                        code = 0,
+                        message = e.ToString()
+                    }
+                };
+            }
+        }
+
+
+        [WebMethod]
+        public string_Result RegInfo_DeleteById(int id)
+        {
+            try
+            {
+                if (!CheckAuthorize())
+                {
+                    return new string_Result()
+                    {
+                        success = 0,
+                        data = null,
+                        error = new WebService_Error_Result()
+                        {
+                            code = 0,
+                            message = "No Login"
+                        }
+                    };
+                }
+
+                return new string_Result()
+                {
+                    success = 1,
+                    data = RegInfo.Delete(id) ? "1" : "0",
+                    error = new WebService_Error_Result()
+                    {
+                        code = 1,
+                        message = "success"
+                    }
+                };
+            }
+            catch (Exception e)
+            {
+                return new string_Result()
+                {
+                    success = 0,
+                    data = null,
+                    error = new WebService_Error_Result()
+                    {
+                        code = 0,
+                        message = e.ToString()
+                    }
+                };
+            }
+        }
+
+
         /////////////////////////////////////////////////  ***   /////////////////////////////////////
         private bool CheckAuthorize()
         {
-            return true;
             return siteSetting.IsAuthenticated;
         }
     }

@@ -496,10 +496,12 @@
     <Content Include="assets\CSS\Site\site.min.css">
       <DependentUpon>site.css</DependentUpon>
     </Content>
+    <Content Include="assets\JS\Admin\UserEdit.js" />
     <Content Include="assets\JS\Admin\Embed.js" />
     <Content Include="assets\JS\Admin\Main.js" />
     <Content Include="assets\JS\Admin\SEO.js" />
     <Content Include="assets\JS\Admin\pupWiget.js" />
+    <Content Include="assets\JS\Admin\RegInfoList.js" />
     <Content Include="assets\JS\Admin\UserList.js" />
     <Content Include="assets\JS\Admin\Wiget.js" />
     <Content Include="assets\JS\Plugins\bk_handsontable.full.min.js" />
@@ -1555,6 +1557,7 @@
     <Content Include="LDPAdmin\Admin.html" />
     <Content Include="LDPAdmin\Embed.aspx" />
     <Content Include="LDPAdmin\UserEdit.aspx" />
+    <Content Include="LDPAdmin\Default.aspx" />
     <Content Include="LDPAdmin\UserList.aspx" />
     <Content Include="LDPAdmin\SEO.aspx" />
     <Content Include="LDPAdmin\Wiget.aspx" />
@@ -1619,6 +1622,13 @@
     </Compile>
     <Compile Include="LDPAdmin\UserEdit.aspx.designer.cs">
       <DependentUpon>UserEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LDPAdmin\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LDPAdmin\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
     <Compile Include="LDPAdmin\UserList.aspx.cs">
       <DependentUpon>UserList.aspx</DependentUpon>
@@ -2901,6 +2911,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="LDPAdmin\App_LocalResources\UserEdit.aspx.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="LDPAdmin\App_LocalResources\Default.aspx.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -103,19 +103,20 @@ namespace LDP.ROOT.LDPAdmin
             Response.Redirect("/LDPAdmin/UserList.aspx");
         }
 
-        protected void btnDel_Click(object sender, EventArgs e)
+
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+
+            Response.Redirect("/LDPAdmin/UserList.aspx");
+        }
+
+        protected void btnDel_Command(object sender, CommandEventArgs e)
         {
             if (userId > 0)
             {
                 LDP.Business.User.Delete(userId);
                 Response.Redirect("/LDPAdmin/UserList.aspx");
             }
-        }
-
-        protected void btnCancel_Click(object sender, EventArgs e)
-        {
-
-            Response.Redirect("/LDPAdmin/UserList.aspx");
         }
     }
 }

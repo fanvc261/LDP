@@ -2893,6 +2893,9 @@ fieldset[disabled] .form-group.is-focused .togglebutton label {
   padding: 8px 8px 0px 8px;
   border-right: none;
 }
+.handsontable .currentRow {
+  background: linear-gradient(180deg, rgba(181, 209, 255, 0.34) 0, rgba(181, 209, 255, 0.34));
+}
 a {
   color: #000000;
 }

@@ -28,7 +28,7 @@ namespace LDP.ROOT
             //phContentRight.Controls.Add(ltr2);
             if (!Page.IsPostBack)
             {
-                List<Wiget> lstWiget = Wiget.GetAll();
+                List<Wiget> lstWiget = Wiget.GetByPage(PageId, (int)WigetStatus.Active);
                 foreach (Wiget item in lstWiget)
                 {
                     if ((item.Status & (int)WigetStatus.Active) > 0)

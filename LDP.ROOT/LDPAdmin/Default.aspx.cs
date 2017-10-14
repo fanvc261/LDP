@@ -1,4 +1,5 @@
 ﻿using LDP.Business;
+using LDP.Data.Constants;
 using LDP.Lib.Common;
 using LDP.ROOT.Base;
 using LDP.ROOT.Models;
@@ -11,9 +12,8 @@ using System.Web.UI.WebControls;
 
 namespace LDP.ROOT.LDPAdmin
 {
-    public partial class WigetPage : LDPAdminBase
+    public partial class RegInfoList : LDPAdminBase
     {
-        int pageId = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!Page.IsPostBack)
@@ -31,20 +31,12 @@ namespace LDP.ROOT.LDPAdmin
 
         private void loadQueryString()
         {
-            pageId = string.IsNullOrEmpty(SiteUtils.QueryString("pageId")) ? 1 : Convert.ToInt32(SiteUtils.QueryString("pageId"));
+            
         }
 
         private void loadControls()
         {
-            rptWiget.DataSource = Wiget.GetByPage(pageId,-1);
-            rptWiget.DataBind();
-            Dictionary<string, string> lstContainer = new XMLModel().GetContainers();
-            ddlContainer.Items.Clear();
-            ddlContainer.Items.Add(new ListItem("", ""));
-            foreach (var item in lstContainer)
-            {
-                ddlContainer.Items.Add(new ListItem(item.Value, item.Key));
-            }
+           
         }
     }
 }

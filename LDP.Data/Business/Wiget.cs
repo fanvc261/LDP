@@ -308,10 +308,18 @@ namespace LDP.Business
             return LoadListFromReader(reader);
         }
 
-            #endregion
-
-
+        public static List<Wiget> GetByPage(
+            int pageId,
+            int status)
+        {
+            IDataReader reader = DBWiget.GetByPage(pageId, status);
+            return LoadListFromReader(reader);
         }
+
+        #endregion
+
+
+    }
 
 }
 

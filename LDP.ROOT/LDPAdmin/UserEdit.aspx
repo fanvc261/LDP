@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/LDPAdmin/AdminSite.Master" AutoEventWireup="true" CodeBehind="UserEdit.aspx.cs" Inherits="LDP.ROOT.LDPAdmin.UserEdit" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="cphHeader" runat="server">
-    <%--<script src="/assets/JS/Admin/UserEdit.js"></script>--%>
+    <script src="/assets/JS/Admin/UserEdit.js"></script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphMain" runat="server">
 
@@ -13,7 +13,7 @@
             <h4 class="box-content-title pdb15 mrt0 mrb5">Thông tin người dùng
                 <div class="pull-right">
                     <asp:Button ID="btnSave" runat="server" CssClass="btn btn-danger " Text="Cập nhật" OnClick="btnSave_Click" />
-                    <asp:Button ID="btnDel" runat="server" CssClass="btn btn-danger " Text="Xóa" OnClick="btnDel_Click" />
+                    <asp:LinkButton ID="btnDel" runat="server" CssClass="btn btn-danger " Text="Xóa"  OnClientClick="return confirm('Bạn có chắt muốn xóa dữ liệu ?')" OnCommand="btnDel_Command" />
                     <input id="btnCancel" class="btn btn-danger" onclick="javascript: location.href = '/LDPAdmin/UserList.aspx';"   value="Hủy" type="button" />
                 </div>
             </h4>
@@ -79,5 +79,5 @@
             </div>
         </div>
     </div>
-
+    
 </asp:Content>

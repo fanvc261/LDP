@@ -111,7 +111,7 @@
                             </a>
                         </li>
                         <li>
-                            <a class="mrt10 mrl15 mrr15 pdl10 pdr10" data-key="mn_rg" href="#">
+                            <a class="mrt10 mrl15 mrr15 pdl10 pdr10" data-key="mn_rg" href="/LDPAdmin/Default.aspx">
                                 <i class="material-icons">list</i>
                                 <p>Danh sách đăng ký</p>
                             </a>
