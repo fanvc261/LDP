@@ -487,11 +487,22 @@
     <Content Include="assets\CSS\Plugins\kendo\Uniform\sprite_2x.png" />
     <Content Include="assets\CSS\Plugins\kendo\Uniform\sprite_kpi.png" />
     <Content Include="assets\CSS\Plugins\kendo\Uniform\sprite_kpi_2x.png" />
+    <Content Include="assets\CSS\Site\fonts\fontawesome-webfont.svg" />
     <Content Include="assets\CSS\Site\img\bglogin.jpg" />
+    <Content Include="assets\CSS\Site\img\collapse.png" />
+    <Content Include="assets\CSS\Site\img\fitness_header_1.jpg" />
+    <Content Include="assets\CSS\Site\img\fitness_header_2.jpg" />
+    <Content Include="assets\CSS\Site\img\medical-bg.jpg" />
+    <Content Include="assets\CSS\Site\img\quote1.png" />
+    <Content Include="assets\CSS\Site\img\quote2.png" />
+    <Content Include="assets\CSS\Site\img\spa_header.jpg" />
+    <Content Include="assets\CSS\Site\img\yoga-bg.jpg" />
     <Content Include="assets\CSS\Site\login.css" />
     <Content Include="assets\CSS\Site\login.min.css">
       <DependentUpon>login.css</DependentUpon>
     </Content>
+    <Content Include="assets\CSS\Site\main.css" />
+    <Content Include="assets\CSS\Site\plugins.css" />
     <Content Include="assets\CSS\Site\site.css" />
     <Content Include="assets\CSS\Site\site.min.css">
       <DependentUpon>site.css</DependentUpon>
@@ -1544,7 +1555,44 @@
     <Content Include="assets\JS\Plugins\material.min.js" />
     <Content Include="assets\JS\Site\admin.js" />
     <Content Include="data\editor\avatar.jpg" />
+    <Content Include="data\img\back_to_top.png" />
+    <Content Include="data\img\ico\android-icon-144x144.png" />
+    <Content Include="data\img\ico\android-icon-192x192.png" />
+    <Content Include="data\img\ico\android-icon-36x36.png" />
+    <Content Include="data\img\ico\android-icon-48x48.png" />
+    <Content Include="data\img\ico\android-icon-72x72.png" />
+    <Content Include="data\img\ico\android-icon-96x96.png" />
+    <Content Include="data\img\ico\apple-icon-114x114.png" />
+    <Content Include="data\img\ico\apple-icon-120x120.png" />
+    <Content Include="data\img\ico\apple-icon-144x144.png" />
+    <Content Include="data\img\ico\apple-icon-152x152.png" />
+    <Content Include="data\img\ico\apple-icon-180x180.png" />
+    <Content Include="data\img\ico\apple-icon-57x57.png" />
+    <Content Include="data\img\ico\apple-icon-60x60.png" />
+    <Content Include="data\img\ico\apple-icon-72x72.png" />
+    <Content Include="data\img\ico\apple-icon-76x76.png" />
+    <Content Include="data\img\ico\apple-icon-precomposed.png" />
+    <Content Include="data\img\ico\apple-icon.png" />
+    <Content Include="data\img\ico\browserconfig.xml" />
+    <Content Include="data\img\ico\favicon-16x16.png" />
+    <Content Include="data\img\ico\favicon-32x32.png" />
+    <Content Include="data\img\ico\favicon-96x96.png" />
+    <Content Include="data\img\ico\favicon.ico" />
+    <Content Include="data\img\ico\ms-icon-144x144.png" />
+    <Content Include="data\img\ico\ms-icon-150x150.png" />
+    <Content Include="data\img\ico\ms-icon-310x310.png" />
+    <Content Include="data\img\ico\ms-icon-70x70.png" />
     <Content Include="data\img\logo-login.jpg" />
+    <Content Include="data\img\patient-pic.jpg" />
+    <Content Include="data\img\patient-pic2.jpg" />
+    <Content Include="data\img\yoga-course-1.png" />
+    <Content Include="data\img\yoga-course-2.png" />
+    <Content Include="data\img\yoga-course-3.png" />
+    <Content Include="data\img\yoga-course-4.png" />
+    <Content Include="data\img\yoga-logo.png" />
+    <Content Include="data\img\yoga-pic-1.png" />
+    <Content Include="data\img\yoga-pic-2.png" />
+    <Content Include="data\img\yoga-trainer.jpg" />
     <Content Include="data\xml\container.xml" />
     <Content Include="LDPAdmin\Popup\pupWiget.aspx" />
     <Content Include="auth\Login.aspx" />
@@ -2857,6 +2905,11 @@
     <Content Include="assets\CSS\Plugins\kendo\kendo.uniform.mobile.min.css.map" />
     <Content Include="assets\Less\site.less" />
     <Content Include="assets\Less\login.less" />
+    <Content Include="assets\CSS\Site\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\CSS\Site\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\CSS\Site\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\CSS\Site\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assets\CSS\Site\fonts\FontAwesome.otf" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -2864,6 +2917,7 @@
     <Content Include="packages.config" />
     <Content Include="LDPAdmin\AdminSite.Master" />
     <Content Include="LDPAdmin\Popup\AdminPopup.Master" />
+    <Content Include="data\img\ico\manifest.json" />
     <None Include="Properties\PublishProfiles\DMS_Pulished.pubxml" />
     <None Include="Properties\PublishProfiles\Orion.pubxml" />
     <Content Include="Upload.ashx" />

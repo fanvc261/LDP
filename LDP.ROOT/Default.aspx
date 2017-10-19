@@ -16,8 +16,9 @@
     <link rel="stylesheet" href="/assets/CSS/Plugins/kendo//kendo.default.mobile.min.css" />
     <link rel="stylesheet" type="text/css" href="/assets/CSS/Plugins/global.css" />
 
-
+    <link rel="stylesheet" type="text/css" href="/assets/CSS/Site/plugins.css" />
     <link rel="stylesheet" type="text/css" href="/assets/CSS/Site/site.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/CSS/Site/main.css" />
     <!--if lt IE 9-->
     <script src="assets/js/html5shiv.js"></script>
     <!-- Favicons ==================================================-->
