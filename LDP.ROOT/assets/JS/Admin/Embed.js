@@ -42,7 +42,8 @@ function loadEmbedCallback(result) {
 
 function saveEmbedCallback(result) {
     $("#btnSave").prop('disabled', false);
-    alert(result);
+    //alert(result);
+    SuccessNotication("Lưu thông tin Embed", "Lưu thông tin embed thành công.");
 }
 
 

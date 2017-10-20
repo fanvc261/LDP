@@ -48,7 +48,8 @@ function loadCategoryCallback(result) {
 
 function saveCategoryCallback(result) {
     $("#btnSave").prop('disabled', false);
-    alert(result);
+    //alert(result);
+    SuccessNotication("Lưu thông tin SEO", "Lưu thông tin SEO thành công.");
 }
 
 

@@ -119,7 +119,7 @@ $(document).ready(function () {
                 return false;
         },
         afterRemoveRow: function (a, b, c, d) {
-
+            SuccessNotication("Xóa thông tin đăng ký", "Xóa thông tin đăng ký thành công.");
         }
     };
 
@@ -148,7 +148,7 @@ $(document).ready(function () {
         //    $("#btnDelete").prop('disabled', true);
         //    deleteWiget(id);
         //}
-        alert(lstId);
+        //alert(lstId);
     });
     $(document).on("click", "#btnExport", function () {
         var exportPlugin = grdTable.getPlugin('exportFile');

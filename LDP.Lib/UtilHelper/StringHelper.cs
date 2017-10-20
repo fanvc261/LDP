@@ -232,8 +232,14 @@ namespace LDP.Lib.Common
 
         //}
 
-        
 
+        public static string HtmlPlainText(this string s)
+        {
+            if (string.IsNullOrEmpty(s)) { return s; }
+
+            return Regex.Replace(s, @"<(.|\n)*?>", "");
+
+        }
 
         public static string HtmlEscapeQuotes(this string s)
         {

@@ -162,5 +162,7 @@ function loadListCallback(result) {
 
 function deleteWigetCallback(result) {
     $("#btnDelete").prop('disabled', false);
-    alert(result);
+    //alert(result);
+
+    SuccessNotication("Xóa thông tin người dùng", "Xóa thông tin người dùng thành công.");
 }

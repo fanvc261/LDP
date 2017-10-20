@@ -42,5 +42,6 @@
     <script src="/assets/JS/Plugins/material.min.js"></script>
     <script src="/assets/JS/Plugins/default.js"></script>
     <script src="/assets/JS/Site/admin.js"></script>
+    <script src="/assets/JS/Site/site.js"></script>
 <asp:PlaceHolder ID="phFooter"  runat="server" ></asp:PlaceHolder>
 </html>

@@ -487,6 +487,7 @@
     <Content Include="assets\CSS\Plugins\kendo\Uniform\sprite_2x.png" />
     <Content Include="assets\CSS\Plugins\kendo\Uniform\sprite_kpi.png" />
     <Content Include="assets\CSS\Plugins\kendo\Uniform\sprite_kpi_2x.png" />
+    <Content Include="assets\CSS\Plugins\pnotify.custom.css" />
     <Content Include="assets\CSS\Site\fonts\fontawesome-webfont.svg" />
     <Content Include="assets\CSS\Site\img\bglogin.jpg" />
     <Content Include="assets\CSS\Site\img\collapse.png" />
@@ -1553,6 +1554,8 @@
     <Content Include="assets\JS\Plugins\less.min.js" />
     <Content Include="AdminService.asmx" />
     <Content Include="assets\JS\Plugins\material.min.js" />
+    <Content Include="assets\JS\Plugins\pnotify.custom.js" />
+    <Content Include="assets\JS\Site\site.js" />
     <Content Include="assets\JS\Site\admin.js" />
     <Content Include="data\editor\avatar.jpg" />
     <Content Include="data\img\back_to_top.png" />
@@ -2930,6 +2933,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_LocalResources\" />
+    <Folder Include="assets\Fonts\fontawesome\" />
+    <Folder Include="assets\Fonts\glyphicons\" />
+    <Folder Include="assets\Fonts\ionicons\" />
     <Folder Include="controls\" />
     <Folder Include="data\systemfiles\" />
     <Folder Include="data\xsl\" />

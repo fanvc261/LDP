@@ -59,7 +59,7 @@ function callMethod_3(n, p, c) {
         dataType: "json",
         data: p.toString(),
         timeout: 30000,
-        url: "/_TradeProposal/DataService.asmx/" + n + "?date=" + new Date().getTime().toString()
+        url: "/DataService.asmx/" + n + "?date=" + new Date().getTime().toString()
     }).done(function (data, status, xhr) {
         funcComplete(data.d);
     }).fail(function (jqXHR, textStatus) {
@@ -231,4 +231,46 @@ function getSeName(obj) {
     str = str.replace(/^\-+|\-+$/g, "");
     //cắt bỏ ký tự - ở đầu và cuối chuỗi 
     return str.toLowerCase();
+}
+
+
+/////////////////////    NOTICE ///////////////////////////////////
+
+
+function SuccessNotication(title, description) {
+    var stack_bar_top = { "dir1": "down", "dir2": "right", "push": "top", "spacing1": 0, "spacing2": 0 };
+    var notice = new PNotify({
+        title: title,
+        text: description,
+        type: 'success',
+        addclass: 'stack-bar-top',
+        stack: stack_bar_top,
+        width: "100%",
+        buttons: {
+            closer: false,
+            sticker: false
+        }
+    });
+    notice.get().click(function () {
+        notice.remove();
+    });
+}
+
+function InfoNotication(title, description) {
+    var stack_bar_top = { "dir1": "down", "dir2": "right", "push": "top", "spacing1": 0, "spacing2": 0 };
+    var notice = new PNotify({
+        title: title,
+        text: description,
+        type: 'info',
+        addclass: 'stack-bar-top',
+        stack: stack_bar_top,
+        width: "100%",
+        buttons: {
+            closer: false,
+            sticker: false
+        }
+    });
+    notice.get().click(function () {
+        notice.remove();
+    });
 }

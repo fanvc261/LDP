@@ -80,12 +80,14 @@ function loadWigetCallback(result) {
 
 function saveWigetCallback(result) {
     $("#btnSave").prop('disabled', false);
-    alert(result);
+    //alert(result);
+    SuccessNotication("Lưu thông tin nội dung", "Lưu thông tin nội dung thành công.");
 }
 
 function deleteWigetCallback(result) {
     $("#btnDelete").prop('disabled', false);
-    alert(result);
+    //alert(result);
+    SuccessNotication("Xóa thông tin nội dung", "Xóa thông tin nội dung thành công.");
 }
 
 function resetForm() {
