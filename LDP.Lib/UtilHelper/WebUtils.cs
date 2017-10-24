@@ -469,8 +469,7 @@ namespace LDP.Lib.Common
             }
             return queryString;
         }
-
-        
+       
         public static string GetHtmlFromWeb(string url)
         {
             string html = string.Empty;
